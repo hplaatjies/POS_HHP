@@ -25,6 +25,8 @@ jobs:
           composer update barryvdh/laravel-debugbar filp/whoops laravel/tinker fzaninotto/faker --with-dependencies --no-interaction || true
           # Next batch: datatables, modules and permissions (incremental)
           composer update yajra/laravel-datatables-oracle yajra/laravel-datatables-buttons nwidart/laravel-modules spatie/laravel-permission --with-dependencies --no-interaction || true
+          # Third batch: misc packages likely safe to update
+          composer update laravelcollective/html milon/barcode intervention/image maatwebsite/excel --with-dependencies --no-interaction || true
       - name: Upload composer.lock
         uses: actions/upload-artifact@v4
         with:
