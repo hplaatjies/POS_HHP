@@ -50,6 +50,41 @@ jobs:
           php composer.phar outdated --all --format=json > outdated-all.json || true
         continue-on-error: true
 
+      - name: Prepare app environment and writable dirs
+        run: |
+          set -e
+          # ensure storage and cache dirs exist and are writable
+          mkdir -p bootstrap/cache
+          mkdir -p storage/framework/{cache,sessions,views}
+          mkdir -p database
+          chmod -R 0777 bootstrap bootstrap/cache storage || true
+          # create sqlite DB file for minimal runtime if not present
+          touch database/database.sqlite || true
+          chmod 0666 database/database.sqlite || true
+          # create minimal .env if none exists (safe defaults for tests)
+          if [ ! -f .env ]; then
+            if [ -f .env.example ]; then
+              cp .env.example .env
+            else
+              cat > .env <<'EOT'
+APP_NAME=Laravel
+APP_ENV=testing
+APP_KEY=base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+APP_DEBUG=false
+APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
+
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+EOT
+            fi
+          fi
+
       - name: Run minimal artisan smoke checks
         env:
           APP_ENV: testing
@@ -58,7 +93,7 @@ jobs:
           set -e
           # avoid running full migrations; just ensure artisan can boot and list routes
           php artisan --version > artisan-version.txt || true
-          php artisan route:list --compact --no-ansi > route-list.txt || true
+          php artisan route:list --no-ansi > route-list.txt || true
           php artisan config:cache || true
         continue-on-error: true
 
