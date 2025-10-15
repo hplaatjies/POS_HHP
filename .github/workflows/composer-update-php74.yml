@@ -2,6 +2,39 @@ name: Composer Update (PHP 7.4)
 
 on:
   workflow_dispatch: {}
+  push:
+    branches:
+      - composer-updates
+
+jobs:
+  composer-update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up PHP 7.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+      - name: Install system packages
+        run: sudo apt-get update && sudo apt-get install -y unzip git
+      - name: Setup composer
+        run: |
+          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+          php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+          rm composer-setup.php
+      - name: Composer update
+        run: |
+          composer config platform.php 7.4
+          composer update --with-all-dependencies --no-interaction
+      - name: Upload composer.lock
+        uses: actions/upload-artifact@v4
+        with:
+          name: composer-lock
+          path: composer.lock
+name: Composer Update (PHP 7.4)
+
+on:
+  workflow_dispatch: {}
 
 jobs:
   composer-update:
