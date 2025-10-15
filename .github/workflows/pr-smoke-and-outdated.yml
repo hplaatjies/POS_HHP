@@ -1,0 +1,76 @@
+name: PR smoke & outdated report (PHP 7.4)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  php74-checks:
+    name: PHP 7.4 composer outdated + smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP 7.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          coverage: none
+
+      - name: Install system deps
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y git unzip libzip-dev libonig-dev libxml2-dev
+
+      - name: Get composer
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          php composer.phar --version
+
+      - name: Configure composer platform & allow plugins
+        run: |
+          php composer.phar config platform.php 7.4
+          php composer.phar config --no-interaction --no-plugins allow-plugins.kylekatarnls/update-helper true || true
+
+      - name: Install vendors (no scripts)
+        run: |
+          php composer.phar install --no-ansi --no-interaction --no-scripts --no-progress
+
+      - name: composer outdated (direct)
+        run: |
+          php composer.phar outdated --direct --format=table > outdated-direct.txt || true
+          php composer.phar outdated --direct --format=json > outdated-direct.json || true
+        continue-on-error: true
+
+      - name: composer outdated (all)
+        run: |
+          php composer.phar outdated --all --format=table > outdated-all.txt || true
+          php composer.phar outdated --all --format=json > outdated-all.json || true
+        continue-on-error: true
+
+      - name: Run minimal artisan smoke checks
+        env:
+          APP_ENV: testing
+          APP_DEBUG: 'false'
+        run: |
+          set -e
+          # avoid running full migrations; just ensure artisan can boot and list routes
+          php artisan --version > artisan-version.txt || true
+          php artisan route:list --compact --no-ansi > route-list.txt || true
+          php artisan config:cache || true
+        continue-on-error: true
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-smoke-and-outdated
+          path: |
+            outdated-direct.txt
+            outdated-direct.json
+            outdated-all.txt
+            outdated-all.json
+            artisan-version.txt
+            route-list.txt
+            bootstrap/cache/*.php
