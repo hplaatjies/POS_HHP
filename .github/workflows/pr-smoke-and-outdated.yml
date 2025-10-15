@@ -25,30 +25,28 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y git unzip libzip-dev libonig-dev libxml2-dev
 
-      - name: Get composer
-        run: |
-          curl -sS https://getcomposer.org/installer | php
-          php composer.phar --version
+  # setup-php installs composer; prefer the provided composer binary instead of curl install
 
       - name: Configure composer platform & allow plugins
         run: |
-          php composer.phar config platform.php 7.4
-          php composer.phar config --no-interaction --no-plugins allow-plugins.kylekatarnls/update-helper true || true
+          composer --version || true
+          composer config platform.php 7.4
+          composer config --no-interaction --no-plugins allow-plugins.kylekatarnls/update-helper true || true
 
       - name: Install vendors (no scripts)
         run: |
-          php composer.phar install --no-ansi --no-interaction --no-scripts --no-progress
+          composer install --no-ansi --no-interaction --no-scripts --no-progress
 
       - name: composer outdated (direct)
         run: |
-          php composer.phar outdated --direct --format=table > outdated-direct.txt || true
-          php composer.phar outdated --direct --format=json > outdated-direct.json || true
+          composer outdated --direct --format=table > outdated-direct.txt || true
+          composer outdated --direct --format=json > outdated-direct.json || true
         continue-on-error: true
 
       - name: composer outdated (all)
         run: |
-          php composer.phar outdated --all --format=table > outdated-all.txt || true
-          php composer.phar outdated --all --format=json > outdated-all.json || true
+          composer outdated --all --format=table > outdated-all.txt || true
+          composer outdated --all --format=json > outdated-all.json || true
         continue-on-error: true
 
       - name: Prepare app environment and writable dirs
@@ -71,22 +69,21 @@ jobs:
             if [ -f .env.example ]; then
               cp .env.example .env
             else
-              cat > .env <<'EOT'
-APP_NAME=Laravel
-APP_ENV=testing
-APP_KEY=base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
-APP_DEBUG=false
-APP_URL=http://localhost
-
-LOG_CHANNEL=stack
-
-DB_CONNECTION=sqlite
-DB_DATABASE=database/database.sqlite
-
-CACHE_DRIVER=file
-QUEUE_CONNECTION=sync
-SESSION_DRIVER=file
-EOT
+              printf '%s\n' \
+                'APP_NAME=Laravel' \
+                'APP_ENV=testing' \
+                'APP_KEY=base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=' \
+                'APP_DEBUG=false' \
+                'APP_URL=http://localhost' \
+                '' \
+                'LOG_CHANNEL=stack' \
+                '' \
+                'DB_CONNECTION=sqlite' \
+                'DB_DATABASE=database/database.sqlite' \
+                '' \
+                'CACHE_DRIVER=file' \
+                'QUEUE_CONNECTION=sync' \
+                'SESSION_DRIVER=file' > .env
             fi
           fi
 
