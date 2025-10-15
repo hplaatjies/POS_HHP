@@ -45,3 +45,42 @@ jobs:
         with:
           name: composer-lock
           path: composer.lock
+
+  targeted-update:
+    name: Run targeted composer update (-W)
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/composer-updates-dev' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP 7.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
+      - name: Install system packages
+        run: sudo apt-get update -qq && sudo apt-get install -y git unzip libzip-dev libonig-dev libxml2-dev
+
+      - name: Get composer
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          php composer.phar --version
+
+      - name: Configure composer platform & allow plugins
+        run: |
+          php composer.phar config platform.php 7.4
+          php composer.phar config --no-interaction --no-plugins allow-plugins.kylekatarnls/update-helper true || true
+
+      - name: Composer update targeted (-W)
+        run: |
+          set -e
+          # Use -W to allow updating packages locked to older versions (needed after composer.json edits).
+          # Update dev dependencies listed in composer.json's require-dev section.
+          php composer.phar update --with-all-dependencies --no-interaction || true
+
+      - name: Upload composer.lock
+        uses: actions/upload-artifact@v4
+        with:
+          name: composer-lock
+          path: composer.lock
