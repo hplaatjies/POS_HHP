@@ -1,6 +1,7 @@
 name: PR smoke & outdated report (PHP 7.4)
 
 on:
+  workflow_dispatch:
   pull_request:
     types: [opened, synchronize, reopened]
 
