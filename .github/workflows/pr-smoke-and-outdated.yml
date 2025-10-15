@@ -27,122 +27,93 @@ jobs:
 
       - name: Get composer
         run: |
-          name: PR smoke & outdated report (PHP 7.4)
+          curl -sS https://getcomposer.org/installer | php
+          php composer.phar --version
 
-          on:
-            workflow_dispatch:
-            pull_request:
-              types: [opened, synchronize, reopened]
+      - name: Configure composer platform & allow plugins
+        run: |
+          php composer.phar config platform.php 7.4
+          php composer.phar config --no-interaction --no-plugins allow-plugins.kylekatarnls/update-helper true || true
 
-          jobs:
-            php74-checks:
-              name: PHP 7.4 composer outdated + smoke
-              runs-on: ubuntu-latest
-              timeout-minutes: 30
-              steps:
-                - name: Checkout
-                  uses: actions/checkout@v4
+      - name: Install vendors (no scripts)
+        run: |
+          php composer.phar install --no-ansi --no-interaction --no-scripts --no-progress
 
-                - name: Setup PHP 7.4
-                  uses: shivammathur/setup-php@v2
-                  with:
-                    php-version: '7.4'
-                    coverage: none
+      - name: composer outdated (direct)
+        run: |
+          php composer.phar outdated --direct --format=table > outdated-direct.txt || true
+          php composer.phar outdated --direct --format=json > outdated-direct.json || true
+        continue-on-error: true
 
-                - name: Install system deps
-                  run: |
-                    sudo apt-get update -qq
-                    sudo apt-get install -y git unzip libzip-dev libonig-dev libxml2-dev
+      - name: composer outdated (all)
+        run: |
+          php composer.phar outdated --all --format=table > outdated-all.txt || true
+          php composer.phar outdated --all --format=json > outdated-all.json || true
+        continue-on-error: true
 
-                - name: Get composer
-                  run: |
-                    curl -sS https://getcomposer.org/installer | php
-                    php composer.phar --version
+      - name: Prepare app environment and writable dirs
+        run: |
+          set -e
+          # ensure storage and cache dirs exist and are writable
+          mkdir -p bootstrap/cache
+          # create a minimal packages.php so the framework has a valid cache path
+          if [ ! -f bootstrap/cache/packages.php ]; then
+            echo "<?php return array ();" > bootstrap/cache/packages.php || true
+          fi
+          mkdir -p storage/framework/{cache,sessions,views}
+          mkdir -p database
+          chmod -R 0777 bootstrap bootstrap/cache storage || true
+          # create sqlite DB file for minimal runtime if not present
+          touch database/database.sqlite || true
+          chmod 0666 database/database.sqlite || true
+          # create minimal .env if none exists (safe defaults for tests)
+          if [ ! -f .env ]; then
+            if [ -f .env.example ]; then
+              cp .env.example .env
+            else
+              cat > .env <<'EOT'
+APP_NAME=Laravel
+APP_ENV=testing
+APP_KEY=base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+APP_DEBUG=false
+APP_URL=http://localhost
 
-                - name: Configure composer platform & allow plugins
-                  run: |
-                    php composer.phar config platform.php 7.4
-                    php composer.phar config --no-interaction --no-plugins allow-plugins.kylekatarnls/update-helper true || true
+LOG_CHANNEL=stack
 
-                - name: Install vendors (no scripts)
-                  run: |
-                    php composer.phar install --no-ansi --no-interaction --no-scripts --no-progress
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
 
-                - name: composer outdated (direct)
-                  run: |
-                    php composer.phar outdated --direct --format=table > outdated-direct.txt || true
-                    php composer.phar outdated --direct --format=json > outdated-direct.json || true
-                  continue-on-error: true
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+EOT
+            fi
+          fi
 
-                - name: composer outdated (all)
-                  run: |
-                    php composer.phar outdated --all --format=table > outdated-all.txt || true
-                    php composer.phar outdated --all --format=json > outdated-all.json || true
-                  continue-on-error: true
+      - name: Run minimal artisan smoke checks
+        env:
+          APP_ENV: testing
+          APP_DEBUG: 'false'
+        run: |
+          set -e
+          # avoid running full migrations; just ensure artisan can boot and list routes
+          # clear any stale config/cache first so artisan can discover packages safely
+          php artisan config:clear || true
+          php artisan --version > artisan-version.txt || true
+          php artisan route:list --no-ansi > route-list.txt || true
+          # regenerate config cache after successful boot checks
+          php artisan config:cache || true
+        continue-on-error: true
 
-                - name: Prepare app environment and writable dirs
-                  run: |
-                    set -e
-                    # ensure storage and cache dirs exist and are writable
-                    mkdir -p bootstrap/cache
-                    # create a minimal packages.php so the framework has a valid cache path
-                    if [ ! -f bootstrap/cache/packages.php ]; then
-                      echo "<?php return array ();" > bootstrap/cache/packages.php || true
-                    fi
-                    mkdir -p storage/framework/{cache,sessions,views}
-                    mkdir -p database
-                    chmod -R 0777 bootstrap bootstrap/cache storage || true
-                    # create sqlite DB file for minimal runtime if not present
-                    touch database/database.sqlite || true
-                    chmod 0666 database/database.sqlite || true
-                    # create minimal .env if none exists (safe defaults for tests)
-                    if [ ! -f .env ]; then
-                      if [ -f .env.example ]; then
-                        cp .env.example .env
-                      else
-                        cat > .env <<'EOT'
-          APP_NAME=Laravel
-          APP_ENV=testing
-          APP_KEY=base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
-          APP_DEBUG=false
-          APP_URL=http://localhost
-
-          LOG_CHANNEL=stack
-
-          DB_CONNECTION=sqlite
-          DB_DATABASE=database/database.sqlite
-
-          CACHE_DRIVER=file
-          QUEUE_CONNECTION=sync
-          SESSION_DRIVER=file
-          EOT
-                      fi
-                    fi
-
-                - name: Run minimal artisan smoke checks
-                  env:
-                    APP_ENV: testing
-                    APP_DEBUG: 'false'
-                  run: |
-                    set -e
-                    # avoid running full migrations; just ensure artisan can boot and list routes
-                    # clear any stale config/cache first so artisan can discover packages safely
-                    php artisan config:clear || true
-                    php artisan --version > artisan-version.txt || true
-                    php artisan route:list --no-ansi > route-list.txt || true
-                    # regenerate config cache after successful boot checks
-                    php artisan config:cache || true
-                  continue-on-error: true
-
-                - name: Upload artifacts
-                  uses: actions/upload-artifact@v4
-                  with:
-                    name: pr-smoke-and-outdated
-                    path: |
-                      outdated-direct.txt
-                      outdated-direct.json
-                      outdated-all.txt
-                      outdated-all.json
-                      artisan-version.txt
-                      route-list.txt
-                      bootstrap/cache/*.php
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-smoke-and-outdated
+          path: |
+            outdated-direct.txt
+            outdated-direct.json
+            outdated-all.txt
+            outdated-all.json
+            artisan-version.txt
+            route-list.txt
+            bootstrap/cache/*.php
