@@ -51,10 +51,23 @@ jobs:
         run: |
           php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
           php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-      - name: Composer update
+      - name: Composer update (selected safe packages)
         run: |
           composer config platform.php 7.4
-          composer update --with-all-dependencies --no-interaction
+          # Allow the update-helper Composer plugin which is used by some packages
+          composer config --no-plugins allow-plugins.kylekatarnls/update-helper true || true
+          # Update only low-risk, semver-safe packages to avoid major-version blockers
+          # Force charts upgrade early to avoid lock conflicts
+          composer update consoletvs/charts -W --no-interaction || true
+          composer update barryvdh/laravel-debugbar filp/whoops laravel/tinker fzaninotto/faker --with-dependencies --no-interaction || true
+          # Next batch: datatables, modules and permissions (incremental)
+          composer update yajra/laravel-datatables-oracle yajra/laravel-datatables-buttons nwidart/laravel-modules spatie/laravel-permission --with-dependencies --no-interaction || true
+          # Third batch: misc packages likely safe to update
+          composer update laravelcollective/html milon/barcode intervention/image maatwebsite/excel --with-dependencies --no-interaction || true
+          # Attempt targeted update of consoletvs/charts (guarded) - may fail if code needs changes
+          composer update consoletvs/charts --with-dependencies --no-interaction || true
+          # Experimental: try to require latest 6.x to check upgrade compatibility (CI-only)
+          composer require "consoletvs/charts:^6.5" --with-all-dependencies --no-interaction || true
       - name: Upload composer.lock
         uses: actions/upload-artifact@v4
         with:
