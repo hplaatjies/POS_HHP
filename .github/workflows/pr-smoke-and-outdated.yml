@@ -3,6 +3,7 @@ name: PR smoke & outdated report (PHP 7.4)
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  workflow_dispatch: {}
 
 jobs:
   php74-checks:
