@@ -23,6 +23,8 @@ jobs:
           composer config platform.php 7.4
           # Update only low-risk, semver-safe packages to avoid major-version blockers
           composer update barryvdh/laravel-debugbar filp/whoops laravel/tinker fzaninotto/faker --with-dependencies --no-interaction || true
+          # Next batch: datatables, modules and permissions (incremental)
+          composer update yajra/laravel-datatables-oracle yajra/laravel-datatables-buttons nwidart/laravel-modules spatie/laravel-permission --with-dependencies --no-interaction || true
       - name: Upload composer.lock
         uses: actions/upload-artifact@v4
         with:
