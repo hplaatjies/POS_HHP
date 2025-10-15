@@ -18,7 +18,7 @@
         "yajra/laravel-datatables-oracle": "^8.3"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.7",
+    "barryvdh/laravel-debugbar": "^3.4",
         "filp/whoops": "^2.18",
         "fakerphp/faker": "^1.24",
         "mockery/mockery": "^1.6",
