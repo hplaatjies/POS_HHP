@@ -31,6 +31,8 @@ jobs:
           composer update laravelcollective/html milon/barcode intervention/image maatwebsite/excel --with-dependencies --no-interaction || true
           # Attempt targeted update of consoletvs/charts (guarded) - may fail if code needs changes
           composer update consoletvs/charts --with-dependencies --no-interaction || true
+          # Experimental: try to require latest 6.x to check upgrade compatibility (CI-only)
+          composer require "consoletvs/charts:^6.5" --with-all-dependencies --no-interaction || true
       - name: Upload composer.lock
         uses: actions/upload-artifact@v4
         with:
