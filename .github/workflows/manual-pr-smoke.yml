@@ -1,0 +1,79 @@
+name: Manual PR smoke runner (temporary)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  run-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: composer-updates-tests
+
+      - name: Setup PHP 7.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
+      - name: Get composer
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          php composer.phar --version
+
+      - name: Configure composer platform & allow plugins
+        run: |
+          php composer.phar config platform.php 7.4
+          php composer.phar config --no-interaction --no-plugins allow-plugins.kylekatarnls/update-helper true || true
+
+      - name: Install vendors (no scripts)
+        run: |
+          php composer.phar install --no-ansi --no-interaction --no-scripts --no-progress
+
+      - name: Prepare app environment and writable dirs
+        run: |
+          mkdir -p bootstrap/cache
+          mkdir -p storage/framework/{cache,sessions,views}
+          mkdir -p database
+          chmod -R 0777 bootstrap bootstrap/cache storage || true
+          touch database/database.sqlite || true
+          chmod 0666 database/database.sqlite || true
+          if [ ! -f .env ]; then
+            if [ -f .env.example ]; then
+              cp .env.example .env
+            else
+              cat > .env <<'EOT'
+APP_NAME=Laravel
+APP_ENV=testing
+APP_KEY=base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+APP_DEBUG=false
+APP_URL=http://localhost
+
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
+
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+EOT
+            fi
+          fi
+
+      - name: Run minimal artisan smoke checks
+        run: |
+          php artisan --version > artisan-version.txt || true
+          php artisan route:list --no-ansi > route-list.txt || true
+          php artisan config:cache || true
+        env:
+          APP_ENV: testing
+          APP_DEBUG: 'false'
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: manual-pr-smoke
+          path: |
+            artisan-version.txt
+            route-list.txt
+            bootstrap/cache/*.php
