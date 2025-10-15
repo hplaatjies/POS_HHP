@@ -23,10 +23,11 @@ jobs:
           php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
           php composer-setup.php --install-dir=/usr/local/bin --filename=composer
           rm composer-setup.php
-      - name: Composer update (safe mode)
+      - name: Composer update (conservative safe list)
         run: |
           composer config platform.php 7.4
-          composer update --with-all-dependencies --no-interaction || true
+          # Update only a short safe-list to avoid breaking major upgrades (do not touch consoletvs/charts)
+          composer update barryvdh/laravel-debugbar filp/whoops laravel/tinker fakerphp/faker mockery/mockery phpunit/phpunit --with-dependencies --no-interaction || true
       - name: Upload composer.lock
         uses: actions/upload-artifact@v4
         with:
