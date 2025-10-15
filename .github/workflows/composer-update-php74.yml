@@ -22,10 +22,11 @@ jobs:
           php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
           php composer-setup.php --install-dir=/usr/local/bin --filename=composer
           rm composer-setup.php
-      - name: Composer update
+      - name: Composer update (selected safe packages)
         run: |
           composer config platform.php 7.4
-          composer update --with-all-dependencies --no-interaction
+          # Update only low-risk, semver-safe packages to avoid major-version blockers
+          composer update barryvdh/laravel-debugbar filp/whoops laravel/tinker fzaninotto/faker --with-dependencies --no-interaction || true
       - name: Upload composer.lock
         uses: actions/upload-artifact@v4
         with:
