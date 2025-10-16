@@ -169,6 +169,9 @@ Route::middleware(['IsInstalled', 'auth', 'SetSessionData', 'language', 'timezon
 	Route::get('/import-products', 'ImportProductsController@index');
 	Route::post('/import-products/store', 'ImportProductsController@store');
 
+	// Export endpoints (example)
+	Route::get('/export/products', 'ProductController@exportProducts');
+
 	//System Settings
 	Route::get('/system-settings', 'BusinessController@getSystemSettings');
 	Route::post('/system-settings', 'BusinessController@postSystemSettings');

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 use App\Utils\ProductUtil;
+use App\Services\PhpSpreadsheetExporter;
 
 class ProductController extends Controller
 {
@@ -871,5 +872,48 @@ class ProductController extends Controller
         //echo "<pre>";print_r($product->toArray());exit;
 
         return view ('product.view-modal')->with(compact('product', 'rack_details'));
+    }
+
+    /**
+     * Export products as XLSX (example adapter)
+     */
+    public function exportProducts(PhpSpreadsheetExporter $exporter)
+    {
+        if (!auth()->user()->can('product.view')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+
+        $products = Product::leftJoin( 'brands', 'products.brand_id', '=', 'brands.id')
+                            ->leftJoin( 'units', 'products.unit_id', '=', 'units.id')
+                            ->leftJoin( 'categories as c1', 'products.category_id', '=', 'c1.id')
+                            ->leftJoin( 'categories as c2', 'products.sub_category_id', '=', 'c2.id')
+                            ->leftJoin( 'tax_rates', 'products.tax', '=', 'tax_rates.id')
+                            ->where('products.business_id', $business_id)
+                            ->select( 'products.id', 'products.name as product', 
+                                    'products.type',
+                                        'c1.name as category', 'c2.name as sub_category', 
+                                        'units.actual_name as unit', 'brands.name as brand', 
+                                        'tax_rates.name as tax', 'products.sku', 
+                                        'products.alert_quantity')
+                            ->get()
+                            ->toArray();
+
+        // Headers map (key => label) - keys correspond to select order
+        $headers = [
+            'product' => 'Product',
+            'type' => 'Type',
+            'category' => 'Category',
+            'sub_category' => 'Sub Category',
+            'unit' => 'Unit',
+            'brand' => 'Brand',
+            'tax' => 'Tax',
+            'sku' => 'SKU',
+            'alert_quantity' => 'Alert Quantity'
+        ];
+
+        // Stream XLSX
+        return $exporter->streamXlsx('products.xlsx', $headers, $products);
     }
 }
