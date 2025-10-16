@@ -37,8 +37,19 @@ jobs:
       - name: Composer update consoletvs/charts
         run: |
           set -e
+          # Prepare minimal app dirs/files so composer scripts that run artisan won't fail
+          mkdir -p bootstrap/cache
+          printf "<?php return array ();\n" > bootstrap/cache/packages.php || true
+          mkdir -p storage/framework/cache/data
+          mkdir -p storage/logs
+          mkdir -p storage/app
+          touch storage/database.sqlite || true
+          # create a minimal .env to avoid artisan errors
+          if [ ! -f .env ]; then
+            printf "APP_KEY=base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=\nAPP_ENV=testing\nAPP_DEBUG=false\nDB_CONNECTION=sqlite\nDB_DATABASE=${PWD}/storage/database.sqlite\n" > .env || true
+          fi
           # Update only Charts (with dependencies). This keeps the change minimal.
-          php composer.phar update consoletvs/charts --with-dependencies --no-interaction || true
+          php composer.phar update consoletvs/charts --with-dependencies --no-interaction --no-scripts || true
 
       - name: Upload composer.lock
         uses: actions/upload-artifact@v4
@@ -75,9 +86,19 @@ jobs:
       - name: Composer update targeted (-W)
         run: |
           set -e
+          # Prepare minimal app dirs/files so composer scripts that run artisan won't fail
+          mkdir -p bootstrap/cache
+          printf "<?php return array ();\n" > bootstrap/cache/packages.php || true
+          mkdir -p storage/framework/cache/data
+          mkdir -p storage/logs
+          mkdir -p storage/app
+          touch storage/database.sqlite || true
+          if [ ! -f .env ]; then
+            printf "APP_KEY=base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=\nAPP_ENV=testing\nAPP_DEBUG=false\nDB_CONNECTION=sqlite\nDB_DATABASE=${PWD}/storage/database.sqlite\n" > .env || true
+          fi
           # Use -W to allow updating packages locked to older versions (needed after composer.json edits).
           # Update dev dependencies listed in composer.json's require-dev section.
-          php composer.phar update --with-all-dependencies --no-interaction || true
+          php composer.phar update --with-all-dependencies --no-interaction --no-scripts || true
 
       - name: Upload composer.lock
         uses: actions/upload-artifact@v4
