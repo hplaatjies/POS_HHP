@@ -84,6 +84,18 @@ $(document).ready(function(){
 			}
 		});
 
+	// Add a simple export button that uses new server-side adapter
+	if($('.box-tools').length){
+		var exportBtn = $('<a class="btn btn-block btn-default" id="export_products_btn" style="margin-left:8px;"><i class="fa fa-download"></i> Export</a>');
+		$('.box-tools').append(exportBtn);
+	}
+
+	$(document).on('click', '#export_products_btn', function(e){
+		e.preventDefault();
+		// Open export in new tab to trigger download
+		window.open('/export/products', '_blank');
+	});
+
 	//Start For product type single
 
 	//If purchase price exc tax is changed
