@@ -54,7 +54,8 @@ jobs:
       - name: Upload composer.lock
         uses: actions/upload-artifact@v4
         with:
-          name: composer-lock
+          # include run id and job to avoid 409 when multiple jobs upload same artifact name
+          name: composer-lock-${{ github.run_id }}-${{ github.job }}
           path: composer.lock
 
   targeted-update:
@@ -103,5 +104,6 @@ jobs:
       - name: Upload composer.lock
         uses: actions/upload-artifact@v4
         with:
-          name: composer-lock
+          # include run id and job to avoid 409 when multiple jobs upload same artifact name
+          name: composer-lock-${{ github.run_id }}-${{ github.job }}
           path: composer.lock
