@@ -19,9 +19,10 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.4",
-        "filp/whoops": "^2.18",
         "fakerphp/faker": "^1.24",
+        "filp/whoops": "^2.18",
         "mockery/mockery": "0.9.*",
+        "php-parallel-lint/php-console-highlighter": "^0.5",
         "phpunit/phpunit": "6.5.*"
     },
     "autoload": {
