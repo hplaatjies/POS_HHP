@@ -17,6 +17,16 @@ require __DIR__.'/bootstrap/autoload.php';
 
 $app = require_once __DIR__.'/bootstrap/app.php';
 
+// Temporary: when running under Composer scripts (post-autoload-dump), suppress deprecation notices
+// so Composer runs complete in older Laravel apps while we gather logs and plan fixes.
+// This is a minimal, reversible change for debugging; remove after fixes are applied.
+if (isset($_SERVER['argv']) && is_array($_SERVER['argv'])) {
+    $argv = implode(' ', $_SERVER['argv']);
+    if (strpos($argv, 'post-autoload-dump') !== false || getenv('COMPOSER_RUNNING') === '1') {
+        error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+    }
+}
+
 /*
 |--------------------------------------------------------------------------
 | Run The Artisan Application
