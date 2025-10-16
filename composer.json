@@ -15,8 +15,9 @@
         "nwidart/laravel-modules": "^3.2",
         "spatie/laravel-permission": "^2.7",
     "phpoffice/phpspreadsheet": "^1.27",
-        "yajra/laravel-datatables-buttons": "3.*",
-        "yajra/laravel-datatables-oracle": "^8.3"
+    "yajra/laravel-datatables-buttons": "3.*",
+    "yajra/laravel-datatables-oracle": "^8.3",
+    "maatwebsite/excel": "^3.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.4",
