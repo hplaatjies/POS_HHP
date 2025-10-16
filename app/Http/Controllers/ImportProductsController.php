@@ -11,7 +11,8 @@ use App\Product, App\Brands, App\Category, App\Unit,
 
 use App\Utils\ProductUtil;
 
-use Excel, DB;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use DB;
 
 class ImportProductsController extends Controller
 {
@@ -79,13 +80,17 @@ class ImportProductsController extends Controller
         	//Set maximum php execution time
         	ini_set('max_execution_time', 0);
 
-        	if ($request->hasFile('products_csv')) {
-        		$file = $request->file('products_csv');
-        		$imported_data = Excel::load($file->getRealPath())
-        						->noHeading()
-        						->skipRows(1)
-        						->get()
-        						->toArray();
+				if ($request->hasFile('products_csv')) {
+					$file = $request->file('products_csv');
+					// Load spreadsheet using PhpSpreadsheet and convert to array
+					$spreadsheet = IOFactory::load($file->getRealPath());
+					$sheet = $spreadsheet->getActiveSheet();
+					$allRows = $sheet->toArray(null, true, true, false);
+					// Remove header row and reindex
+					if (count($allRows) > 0) {
+						array_shift($allRows);
+					}
+					$imported_data = array_values($allRows);
         		$business_id = $request->session()->get('user.business_id');
         		$user_id = $request->session()->get('user.id');
         		$default_profit_percent = $request->session()->get('business.default_profit_percent');

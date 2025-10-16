@@ -10,7 +10,8 @@ use App\Product,
 
 use App\Utils\ProductUtil;
 
-use Excel, DB;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use DB;
 
 class ImportOpeningStockController extends Controller
 {
@@ -75,12 +76,16 @@ class ImportOpeningStockController extends Controller
 
         	if ($request->hasFile('products_csv')) {
 
-        		$file = $request->file('products_csv');
-        		$imported_data = Excel::load($file->getRealPath())
-        						->noHeading()
-        						->skipRows(1)
-        						->get()
-        						->toArray();
+				$file = $request->file('products_csv');
+				// Load spreadsheet using PhpSpreadsheet and convert to array
+				$spreadsheet = IOFactory::load($file->getRealPath());
+				$sheet = $spreadsheet->getActiveSheet();
+				$allRows = $sheet->toArray(null, true, true, false);
+				// Remove header row and reindex
+				if (count($allRows) > 0) {
+					array_shift($allRows);
+				}
+				$imported_data = array_values($allRows);
         		$business_id = $request->session()->get('user.business_id');
         		$user_id = $request->session()->get('user.id');
 
