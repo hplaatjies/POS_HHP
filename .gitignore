@@ -5,3 +5,4 @@ storage/
 node_modules/
 /public/uploads/
 .DS_Store
+artifacts/pr-smoke/**/bootstrap/cache/
