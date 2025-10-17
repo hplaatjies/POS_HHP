@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - ci/dev-replacements
+      - upgrade-maatwebsite-excel
 
 jobs:
   php-smoke:
