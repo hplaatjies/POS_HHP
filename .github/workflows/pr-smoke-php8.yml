@@ -1,0 +1,49 @@
+name: PR smoke (PHP 8 matrix)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - ci/dev-replacements
+
+jobs:
+  php-smoke:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: [8.1, 8.2]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer
+      - name: Composer install (from lock)
+        run: |
+          composer config platform.php ${{ matrix.php }}
+          composer install --no-ansi --no-interaction --no-progress --no-scripts || true
+      - name: Prepare minimal runtime
+        run: |
+          mkdir -p bootstrap/cache
+          touch bootstrap/cache/packages.php
+          touch bootstrap/cache/services.php
+          mkdir -p storage/framework/{cache,sessions,views}
+          chmod -R 0777 bootstrap storage || true
+          if [ ! -f .env ]; then cp .env.example .env || true; fi
+      - name: Run artisan checks
+        run: |
+          php artisan --version > artisan-version.txt || true
+          php artisan route:list --no-ansi > route-list.txt || true
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-smoke-php8-${{ github.run_id }}
+          path: |
+            artisan-version.txt
+            route-list.txt
+            bootstrap/cache/*.php
+            outdated-direct.json
+            outdated-all.json
