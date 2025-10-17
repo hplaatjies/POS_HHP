@@ -776,9 +776,6 @@ class Container implements ArrayAccess, ContainerContract
         // Once we have all the constructor's parameters we can create each of the
         // dependency instances and then use the reflection instances to make a
         // new instance of this class, injecting the created dependencies in.
-        // Resolve dependencies preferring ReflectionParameter::getType() where
-        // available to avoid using the deprecated ReflectionParameter::getClass()
-        // on newer PHP versions which emits deprecation notices.
         $instances = $this->resolveDependencies(
             $dependencies
         );
@@ -808,19 +805,9 @@ class Container implements ArrayAccess, ContainerContract
                 continue;
             }
 
-            // Determine if this parameter is a class type without calling
-            // ReflectionParameter::getClass() directly (deprecated on PHP 8+).
-            $isClass = false;
-
-            $type = $dependency->getType();
-            if ($type instanceof \ReflectionNamedType && ! $type->isBuiltin()) {
-                // Parameter has a named type and it's not a builtin (i.e. a class/interface)
-                $isClass = true;
-            } else {
-                // Fallback for older PHP versions or edge-cases where getType()
-                // doesn't indicate a class (still call getClass as last resort).
-                $isClass = ! is_null($dependency->getClass());
-            }
+            // Determine if this parameter is a class type by using ReflectionParameter::getClass().
+            // This matches the original behavior in Laravel 5.5 where PHP 7.1+ was not a concern.
+            $isClass = ! is_null($dependency->getClass());
 
             $results[] = $isClass
                             ? $this->resolveClass($dependency)
@@ -896,24 +883,13 @@ class Container implements ArrayAccess, ContainerContract
     protected function resolveClass(ReflectionParameter $parameter)
     {
         try {
-            // Prefer getType() (non-deprecated) on PHP 7.1+ and PHP 8+, falling
-            // back to getClass() for older runtimes where necessary.
-            $type = $parameter->getType();
+            $class = $parameter->getClass();
 
-            if ($type instanceof \ReflectionNamedType && ! $type->isBuiltin()) {
-                $className = $type->getName();
-            } else {
-                $class = $parameter->getClass();
-                $className = $class ? $class->name : null;
-            }
-
-            if (! $className) {
-                // No class name available; behave like original and let the
-                // unresolvable flow handle it via exception or optional default.
+            if (! $class) {
                 $this->unresolvablePrimitive($parameter);
             }
 
-            return $this->make($className);
+            return $this->make($class->name);
         } catch (BindingResolutionException $e) {
             if ($parameter->isOptional()) {
                 return $parameter->getDefaultValue();
