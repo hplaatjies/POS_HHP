@@ -38,6 +38,27 @@ jobs:
         run: |
           php artisan --version > artisan-version.txt || true
           php artisan route:list --no-ansi > route-list.txt || true
+      - name: Artifact diagnostics (ensure non-empty)
+        run: |
+          # Ensure artifact files exist and contain something before upload
+          touch artisan-version.txt route-list.txt outdated-direct.json outdated-all.json
+          if [ ! -s artisan-version.txt ]; then
+            php artisan --version > artisan-version.txt || echo "ERROR: artisan --version failed" > artisan-version.txt
+          fi
+          if [ ! -s route-list.txt ]; then
+            php artisan route:list --no-ansi > route-list.txt || echo "ERROR: route:list failed" > route-list.txt
+          fi
+          if [ ! -s outdated-direct.json ]; then
+            composer outdated --direct --format=json > outdated-direct.json || echo '{}' > outdated-direct.json
+          fi
+          if [ ! -s outdated-all.json ]; then
+            composer outdated --all --format=json > outdated-all.json || echo '{}' > outdated-all.json
+          fi
+          for f in artisan-version.txt route-list.txt outdated-direct.json outdated-all.json; do
+            if [ ! -s "$f" ]; then
+              echo "EMPTY_ARTIFACT: $f" > "$f"
+            fi
+          done
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
