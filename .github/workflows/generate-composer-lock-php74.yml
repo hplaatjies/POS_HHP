@@ -44,6 +44,12 @@ jobs:
           ls -l composer.lock || true
           git --no-pager diff --name-only || true
 
+      - name: Upload composer.lock early (save even if push fails)
+        uses: actions/upload-artifact@v4
+        with:
+          name: composer-lock-php74
+          path: composer.lock
+
       - name: Commit composer.lock back to branch (if changed)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
