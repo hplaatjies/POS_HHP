@@ -1,0 +1,51 @@
+*** Begin Patch
+*** Update File: vendor/laravel/framework/src/Illuminate/Support/Collection.php
+@@
+-    public function offsetExists($key)
+-    {
+-        return array_key_exists($key, $this->items);
+-    }
++    #[\ReturnTypeWillChange]
++    public function offsetExists($key)
++    {
++        return array_key_exists($key, $this->items);
++    }
+@@
+-    public function offsetGet($key)
+-    {
+-        return $this->items[$key];
+-    }
++    #[\ReturnTypeWillChange]
++    public function offsetGet($key)
++    {
++        return $this->items[$key];
++    }
+@@
+-    public function offsetSet($key, $value)
+-    {
+-        if (is_null($key)) {
+-            $this->items[] = $value;
+-        } else {
+-            $this->items[$key] = $value;
+-        }
+-    }
++    #[\ReturnTypeWillChange]
++    public function offsetSet($key, $value)
++    {
++        if (is_null($key)) {
++            $this->items[] = $value;
++        } else {
++            $this->items[$key] = $value;
++        }
++    }
+@@
+-    public function offsetUnset($key)
+-    {
+-        unset($this->items[$key]);
+-    }
++    #[\ReturnTypeWillChange]
++    public function offsetUnset($key)
++    {
++        unset($this->items[$key]);
++    }
+*** End Patch

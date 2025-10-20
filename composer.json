@@ -78,11 +78,13 @@
     "extra": {
         "patches": {
             "laravel/framework": {
-                "Add ReturnTypeWillChange attribute to ArrayAccess methods in Collection for PHP 8": "patches/laravel-framework-collection-offsetExists-php8.patch"
-            }
-            ,
+                "Add ReturnTypeWillChange attribute to ArrayAccess methods in Collection for PHP 8": "patches/vendor-laravel-collection-returntypewillchange.patch"
+            },
+            "laravel/container": {
+                "Suppress ReflectionParameter::getClass() deprecation during triage": "patches/vendor-laravel-container-getclass-suppress.patch"
+            },
             "symfony/debug": {
-                "Graceful fallback when xdebug is not available for FatalErrorException backtrace": "patches/symfony-debug-fatalerrorexception-xdebug-fallback.patch"
+                "Graceful fallback when xdebug is not available for FatalErrorException backtrace": "patches/vendor-symfony-fatalerrorexception-trace-fallback.patch"
             }
         }
     }
