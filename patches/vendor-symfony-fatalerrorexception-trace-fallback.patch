@@ -1,0 +1,6 @@
+*** Begin Patch
+*** Update File: vendor/symfony/debug/Exception/FatalErrorException.php
+@@
+-    public function __construct($message, $code = 0, $severity = 0, $filename = '', $lineno = 0, \Exception $previous = null)
++    public function __construct($message, $code = 0, $severity = 0, $filename = '', $lineno = 0, $previous = null)
+*** End Patch

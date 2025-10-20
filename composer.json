@@ -7,22 +7,26 @@
     "require": {
         "php": ">=5.6.4",
         "composer/semver": "^1.4",
-    "consoletvs/charts": "^6.5",
+    "consoletvs/charts": "^6.8",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5.1",
         "milon/barcode": "^5.3",
         "nwidart/laravel-modules": "^3.2",
         "spatie/laravel-permission": "^2.7",
-        "yajra/laravel-datatables-buttons": "3.*",
-        "yajra/laravel-datatables-oracle": "^8.3"
+    "phpoffice/phpspreadsheet": "^1.27",
+    "yajra/laravel-datatables-buttons": "^4.13",
+    "yajra/laravel-datatables-oracle": "^8.3",
+    "maatwebsite/excel": "^3.1",
+    "cweagans/composer-patches": "^1.7"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.1",
-        "filp/whoops": "~2.0",
-    "fakerphp/faker": "^1.20",
+        "barryvdh/laravel-debugbar": "^3.4",
+        "fakerphp/faker": "^1.24",
+        "filp/whoops": "^2.18",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~6.0"
+        "php-parallel-lint/php-console-highlighter": "^0.5",
+        "phpunit/phpunit": "6.5.*"
     },
     "autoload": {
         "classmap": [
@@ -66,7 +70,22 @@
             "php": "7.4"
         },
         "allow-plugins": {
-            "kylekatarnls/update-helper": true
+            "kylekatarnls/update-helper": true,
+            "cweagans/composer-patches": true
+        }
+    }
+    ,
+    "extra": {
+        "patches": {
+            "laravel/framework": {
+                "Add ReturnTypeWillChange attribute to ArrayAccess methods in Collection for PHP 8": "patches/vendor-laravel-collection-returntypewillchange.patch"
+            },
+            "laravel/container": {
+                "Suppress ReflectionParameter::getClass() deprecation during triage": "patches/vendor-laravel-container-getclass-suppress.patch"
+            },
+            "symfony/debug": {
+                "Graceful fallback when xdebug is not available for FatalErrorException backtrace": "patches/vendor-symfony-fatalerrorexception-trace-fallback.patch"
+            }
         }
     }
 }

@@ -1,0 +1,71 @@
+name: Composer Update — with scripts (PHP 7.4, debug)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  run-update-with-scripts:
+    name: Run composer update (scripts enabled)
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP 7.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
+      - name: Install system packages
+        run: sudo apt-get update -qq && sudo apt-get install -y git unzip libzip-dev libonig-dev libxml2-dev
+
+      - name: Get composer
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          php composer.phar --version
+
+      - name: Configure composer platform & allow plugins
+        run: |
+          php composer.phar config platform.php 7.4
+          php composer.phar config --no-interaction --no-plugins allow-plugins.kylekatarnls/update-helper true || true
+
+      - name: Prepare minimal app dirs/files
+        run: |
+          mkdir -p bootstrap/cache
+          printf "<?php return array ();\n" > bootstrap/cache/packages.php || true
+          mkdir -p storage/framework/cache/data
+          mkdir -p storage/logs
+          mkdir -p storage/app
+          touch storage/database.sqlite || true
+          if [ ! -f .env ]; then
+            printf "APP_KEY=base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=\nAPP_ENV=testing\nAPP_DEBUG=false\nDB_CONNECTION=sqlite\nDB_DATABASE=${PWD}/storage/database.sqlite\n" > .env || true
+          fi
+
+      - name: Composer update (with scripts)
+        run: |
+          set -e
+          # Use -W to allow updating packages locked to older versions.
+          php composer.phar update --with-all-dependencies --no-interaction || true
+
+      - name: Upload run log
+        if: always()
+        run: |
+          mkdir -p build-logs
+          php composer.phar --version > build-logs/composer-version.txt || true
+          # Save last 2000 lines of composer output if available
+          echo "-- logs are in workflow job log via actions --" > build-logs/README.txt || true
+        
+      - name: Upload composer.lock
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: composer-lock-${{ github.run_id }}-with-scripts
+          path: composer.lock
+
+      - name: Upload build-logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: composer-update-logs-${{ github.run_id }}
+          path: build-logs

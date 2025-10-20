@@ -1,0 +1,22 @@
+*** Begin Patch
+*** Update File: vendor/laravel/framework/src/Illuminate/Container/Container.php
+@@
+-            // Determine if this parameter is a class type by using ReflectionParameter::getClass().
+-            // This matches the original behavior in Laravel 5.5 where PHP 7.1+ was not a concern.
+-            $isClass = ! is_null($dependency->getClass());
++            // Determine if this parameter is a class type. Suppress deprecation warnings
++            // from ReflectionParameter::getClass() on PHP 8 during triage. Replace with
++            // reflection getType() use in an actual upgrade.
++            $isClass = ! is_null(@$dependency->getClass());
+@@
+-            $class = $parameter->getClass();
+-
+-            if (! $class) {
+-                $this->unresolvablePrimitive($parameter);
+-            }
++            $class = @ $parameter->getClass();
++
++            if (! $class) {
++                $this->unresolvablePrimitive($parameter);
++            }
+*** End Patch

@@ -1,0 +1,67 @@
+<?php
+
+namespace Symfony\Component\Debug\Exception;
+
+/**
+ * Fatal error exception.
+ *
+ * @author Fabien Potencier <fabien@symfony.com>
+ */
+class FatalErrorException extends \ErrorException
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct($message, $code = 0, $severity = 0, $filename = '', $lineno = 0, $previous = null)
+    {
+        // PHP 8.0+ throws Error instead of Exception in case of fatal error
+        if (class_exists('Error')) {
+            parent::__construct($message, $code, $severity, $filename, $lineno, $previous instanceof \Error ? $previous : null);
+        } else {
+            parent::__construct($message, $code, $severity, $filename, $lineno, $previous);
+        }
+
+        // Prefer XDebug trace when available, but gracefully fall back to native backtrace
+        // to avoid fatal errors when XDebug is not installed or enabled in CI.
+        if (\function_exists('xdebug_get_function_stack')) {
+            $trace = xdebug_get_function_stack();
+            if (0 < $traceOffset) {
+                array_splice($trace, -$traceOffset);
+            }
+
+            foreach ($trace as &$frame) {
+                if (!isset($frame['type'])) {
+                    if (isset($frame['class'])) {
+                        $frame['type'] = '::';
+                    }
+                } elseif ('dynamic' === $frame['type']) {
+                    $frame['type'] = '->';
+                } elseif ('static' === $frame['type']) {
+                    $frame['type'] = '::';
+                }
+
+                if (!$traceArgs) {
+                    unset($frame['params'], $frame['args']);
+                } elseif (isset($frame['params']) && !isset($frame['args'])) {
+                    $frame['args'] = $frame['params'];
+                    unset($frame['params']);
+                }
+            }
+
+            unset($frame);
+            $trace = array_reverse($trace);
+        } elseif (\function_exists('symfony_debug_backtrace')) {
+            $trace = symfony_debug_backtrace();
+            if (0 < $traceOffset) {
+                array_splice($trace, 0, $traceOffset);
+            }
+        } else {
+            // No XDebug and no symfony helper: construct a minimal backtrace with available data
+            $trace = debug_backtrace($traceArgs ? DEBUG_BACKTRACE_PROVIDE_OBJECT : DEBUG_BACKTRACE_IGNORE_ARGS, 10);
+            // Adjust offset if requested
+            if (0 < $traceOffset) {
+                array_splice($trace, 0, $traceOffset);
+            }
+        }
+    }
+}

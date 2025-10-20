@@ -1,0 +1,594 @@
+<?php
+
+namespace Illuminate\Container;
+
+use Closure;
+use Countable;
+use ArrayAccess;
+use Illuminate\Contracts\Container\BindingResolutionException;
+
+class Container implements ArrayAccess, Countable
+{
+    /**
+     * The container's bindings.
+     *
+     * @var array
+     */
+    protected $bindings = [];
+
+    /**
+     * The container's instances.
+     *
+     * @var array
+     */
+    protected $instances = [];
+
+    /**
+     * The resolved parameters for the container.
+     *
+     * @var array
+     */
+    protected $resolved = [];
+
+    /**
+     * The aliases that have been registered with the container.
+     *
+     * @var array
+     */
+    protected $aliases = [];
+
+    /**
+     * The registered extensions.
+     *
+     * @var array
+     */
+    protected $extensions = [];
+
+    /**
+     * The container's shared instances.
+     *
+     * @var array
+     */
+    protected $shared = [];
+
+    /**
+     * The container's contextual binding.
+     *
+     * @var array
+     */
+    protected $contextual = [];
+
+    /**
+     * The container's tagged instances.
+     *
+     * @var array
+     */
+    protected $tags = [];
+
+    /**
+     * The container's global instance.
+     *
+     * @var \Illuminate\Container\Container
+     */
+    protected static $instance;
+
+    /**
+     * Create a new container instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Register a binding with the container.
+     *
+     * @param  string|array  $abstract
+     * @param  \Closure|string|null  $concrete
+     * @param  bool  $shared
+     * @return void
+     */
+    public function bind($abstract, $concrete = null, $shared = false)
+    {
+        // If the given "abstract" is an array we will assume that we are registering
+        // multiple bindings at once. We will loop through each of the bindings and
+        // register them with the container for the developer, which is a convenience.
+        if (is_array($abstract)) {
+            foreach ($abstract as $key => $value) {
+                $this->bind($key, $value, $concrete);
+            }
+
+            return;
+        }
+
+        $this->bindings[$abstract] = [
+            'concrete' => $concrete ?? $abstract,
+            'shared' => $shared,
+        ];
+
+        // If the binding is shared we will store it in the "instances" array so that
+        // we can return the same instance every time it's requested by the user.
+        if ($shared) {
+            $this->instances[$abstract] = $this->make($abstract);
+        }
+    }
+
+    /**
+     * Register a binding as shared.
+     *
+     * @param  string|array  $abstract
+     * @param  \Closure|string|null  $concrete
+     * @return void
+     */
+    public function singleton($abstract, $concrete = null)
+    {
+        $this->bind($abstract, $concrete, true);
+    }
+
+    /**
+     * Determine if the given abstract type has been bound.
+     *
+     * @param  string  $abstract
+     * @return bool
+     */
+    public function bound($abstract)
+    {
+        return isset($this->bindings[$abstract]) || isset($this->instances[$abstract]);
+    }
+
+    /**
+     * Resolve an instance of the given abstract type.
+     *
+     * @param  string  $abstract
+     * @param  array  $parameters
+     * @return mixed
+     *
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     */
+    public function make($abstract, array $parameters = [])
+    {
+        // If the instance has already been resolved, we will just return it back to
+        // the developer. Otherwise, we will resolve it now and return it to them.
+        if (isset($this->instances[$abstract])) {
+            return $this->instances[$abstract];
+        }
+
+        if (!isset($this->bindings[$abstract])) {
+            throw new BindingResolutionException("Target class [$abstract] does not exist.");
+        }
+
+        $concrete = $this->bindings[$abstract]['concrete'];
+
+        // If the concrete is a closure, we will call it and return the result. This
+        // allows developers to register closures as bindings which can resolve
+        // themselves and perform any necessary setup when the instance is created.
+        if ($concrete instanceof Closure) {
+            return $concrete($this, $parameters);
+        }
+
+        // If the concrete is not a closure, we will assume it's a class name and we
+        // will attempt to instantiate it using the container. We will also pass any
+        // given parameters to the class constructor when resolving the instance.
+        return $this->build($concrete, $parameters);
+    }
+
+    /**
+     * Build an instance of the given class.
+     *
+     * @param  string  $concrete
+     * @param  array  $parameters
+     * @return mixed
+     */
+    protected function build($concrete, array $parameters)
+    {
+        // If the class has a "build" method, we will call it and return the result.
+        // This allows classes to perform any necessary setup or configuration when
+        // they are resolved from the container.
+        if (method_exists($concrete, 'build')) {
+            return $concrete::build($this, $parameters);
+        }
+
+        $reflector = new \ReflectionClass($concrete);
+
+        // If the class is not instantiable, we will throw an exception. This will
+        // prevent the container from attempting to instantiate an abstract class or
+        // an interface, which would not be possible.
+        if (!$reflector->isInstantiable()) {
+            throw new BindingResolutionException("Target class [$concrete] is not instantiable.");
+        }
+
+        $constructor = $reflector->getConstructor();
+
+        // If the class has no constructor, we can instantiate it without resolving
+        // any dependencies. This is the simplest case and we can just return a new
+        // instance of the class.
+        if (is_null($constructor)) {
+            return new $concrete;
+        }
+
+        // If the class has a constructor, we will resolve its dependencies and then
+        // call the constructor with the resolved dependencies. This allows classes
+        // to have their dependencies automatically injected by the container.
+        $dependencies = $constructor->getParameters();
+
+        $instances = [];
+        foreach ($dependencies as $dependency) {
+            $instances[] = $this->resolveDependency($dependency, $parameters);
+        }
+
+        return new $concrete(...$instances);
+    }
+
+    /**
+     * Resolve a single dependency instance.
+     *
+     * @param  \ReflectionParameter  $parameter
+     * @param  array  $parameters
+     * @return mixed
+     */
+    protected function resolveDependency(\ReflectionParameter $parameter, array $parameters)
+    {
+        // Determine if this parameter is a class type. Suppress deprecation warnings
+        // from ReflectionParameter::getClass() on PHP 8 during triage. Replace with
+        // reflection getType() use in an actual upgrade.
+        $class = @ $parameter->getClass();
+
+        // If the parameter has no class type-hint, we will return null. This allows
+        // parameters to be optional or to have scalar types that are not resolved
+        // by the container.
+        if (is_null($class)) {
+            return;
+        }
+
+        return $this->make($class->name, $parameters);
+    }
+
+    /**
+     * Register an existing instance as a shared instance in the container.
+     *
+     * @param  string  $abstract
+     * @param  mixed  $instance
+     * @return void
+     */
+    public function instance($abstract, $instance)
+    {
+        $this->instances[$abstract] = $instance;
+
+        if (isset($this->bindings[$abstract])) {
+            $this->bindings[$abstract]['concrete'] = $instance;
+        }
+    }
+
+    /**
+     * Get an instance from the container.
+     *
+     * @param  string  $abstract
+     * @return mixed
+     */
+    public function get($abstract)
+    {
+        return $this->make($abstract);
+    }
+
+    /**
+     * Resolve a given type from the container.
+     *
+     * @param  string  $abstract
+     * @param  array  $parameters
+     * @return mixed
+     */
+    public function resolve($abstract, array $parameters = [])
+    {
+        return $this->make($abstract, $parameters);
+    }
+
+    /**
+     * Register a new extension for a given type.
+     *
+     * @param  string  $abstract
+     * @param  \Closure  $closure
+     * @return void
+     */
+    public function extend($abstract, Closure $closure)
+    {
+        $this->extensions[$abstract] = $closure;
+    }
+
+    /**
+     * Register a new contextual binding.
+     *
+     * @param  string  $concrete
+     * @param  string|array  $abstracts
+     * @return void
+     */
+    public function when($concrete, $abstracts)
+    {
+        $this->contextual[$concrete] = (array) $abstracts;
+    }
+
+    /**
+     * Register a new tag with the container.
+     *
+     * @param  string  $name
+     * @param  array|string  $abstracts
+     * @return void
+     */
+    public function tag($name, $abstracts)
+    {
+        $this->tags[$name] = (array) $abstracts;
+    }
+
+    /**
+     * Resolve all of the instances for a given tag.
+     *
+     * @param  string  $name
+     * @return array
+     */
+    public function tagged($name)
+    {
+        return array_map([$this, 'get'], $this->tags[$name]);
+    }
+
+    /**
+     * Get the container's bindings.
+     *
+     * @return array
+     */
+    public function getBindings()
+    {
+        return $this->bindings;
+    }
+
+    /**
+     * Get the container's instances.
+     *
+     * @return array
+     */
+    public function getInstances()
+    {
+        return $this->instances;
+    }
+
+    /**
+     * Get the container's resolved parameters.
+     *
+     * @return array
+     */
+    public function getResolved()
+    {
+        return $this->resolved;
+    }
+
+    /**
+     * Get the container's aliases.
+     *
+     * @return array
+     */
+    public function getAliases()
+    {
+        return $this->aliases;
+    }
+
+    /**
+     * Get the container's extensions.
+     *
+     * @return array
+     */
+    public function getExtensions()
+    {
+        return $this->extensions;
+    }
+
+    /**
+     * Get the container's shared instances.
+     *
+     * @return array
+     */
+    public function getShared()
+    {
+        return $this->shared;
+    }
+
+    /**
+     * Get the container's contextual bindings.
+     *
+     * @return array
+     */
+    public function getContextual()
+    {
+        return $this->contextual;
+    }
+
+    /**
+     * Get the container's tagged instances.
+     *
+     * @return array
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Determine if the container has a given instance.
+     *
+     * @param  string  $abstract
+     * @return bool
+     */
+    public function has($abstract)
+    {
+        return isset($this->instances[$abstract]);
+    }
+
+    /**
+     * Remove a binding from the container.
+     *
+     * @param  string  $abstract
+     * @return void
+     */
+    public function forget($abstract)
+    {
+        unset($this->bindings[$abstract], $this->instances[$abstract], $this->resolved[$abstract]);
+    }
+
+    /**
+     * Clear all of the container's bindings.
+     *
+     * @return void
+     */
+    public function flush()
+    {
+        $this->bindings = [];
+        $this->instances = [];
+        $this->resolved = [];
+    }
+
+    /**
+     * Get the global instance of the container.
+     *
+     * @return \Illuminate\Container\Container
+     */
+    public static function getInstance()
+    {
+        return static::$instance;
+    }
+
+    /**
+     * Set the global instance of the container.
+     *
+     * @param  \Illuminate\Container\Container  $instance
+     * @return void
+     */
+    public static function setInstance(Container $instance)
+    {
+        static::$instance = $instance;
+    }
+
+    /**
+     * Determine if the given abstract type is resolved.
+     *
+     * @param  string  $abstract
+     * @return bool
+     */
+    public function isResolved($abstract)
+    {
+        return isset($this->resolved[$abstract]);
+    }
+
+    /**
+     * Mark the given abstract type as resolved.
+     *
+     * @param  string  $abstract
+     * @return void
+     */
+    public function markResolved($abstract)
+    {
+        $this->resolved[$abstract] = true;
+    }
+
+    /**
+     * Determine if the given abstract type is shared.
+     *
+     * @param  string  $abstract
+     * @return bool
+     */
+    public function isShared($abstract)
+    {
+        return isset($this->shared[$abstract]);
+    }
+
+    /**
+     * Mark the given abstract type as shared.
+     *
+     * @param  string  $abstract
+     * @return void
+     */
+    public function markShared($abstract)
+    {
+        $this->shared[$abstract] = true;
+    }
+
+    /**
+     * Determine if the given abstract type is an alias.
+     *
+     * @param  string  $abstract
+     * @return bool
+     */
+    public function isAlias($abstract)
+    {
+        return isset($this->aliases[$abstract]);
+    }
+
+    /**
+     * Mark the given abstract type as an alias.
+     *
+     * @param  string  $abstract
+     * @return void
+     */
+    public function markAlias($abstract)
+    {
+        $this->aliases[$abstract] = true;
+    }
+
+    /**
+     * Determine if the given abstract type is a closure.
+     *
+     * @param  string  $abstract
+     * @return bool
+     */
+    public function isClosure($abstract)
+    {
+        return isset($this->bindings[$abstract]) && $this->bindings[$abstract]['concrete'] instanceof Closure;
+    }
+
+    /**
+     * Get the closure for the given abstract type.
+     *
+     * @param  string  $abstract
+     * @return \Closure|null
+     */
+    public function getClosure($abstract)
+    {
+        return $this->isClosure($abstract) ? $this->bindings[$abstract]['concrete'] : null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    #[\ReturnTypeWillChange]
+    public function offsetExists($key)
+    {
+        return $this->bound($key);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    #[\ReturnTypeWillChange]
+    public function offsetGet($key)
+    {
+        return $this->make($key);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    #[\ReturnTypeWillChange]
+    public function offsetSet($key, $value)
+    {
+        $this->bind($key, $value instanceof Closure ? $value : function () use ($value) {
+            return $value;
+        });
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    #[\ReturnTypeWillChange]
+    public function offsetUnset($key)
+    {
+        unset($this->bindings[$key], $this->instances[$key], $this->resolved[$key]);
+    }
+}
