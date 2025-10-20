@@ -230,7 +230,10 @@ class Container implements ArrayAccess, Countable
      */
     protected function resolveDependency(\ReflectionParameter $parameter, array $parameters)
     {
-        $class = $parameter->getClass();
+        // Determine if this parameter is a class type. Suppress deprecation warnings
+        // from ReflectionParameter::getClass() on PHP 8 during triage. Replace with
+        // reflection getType() use in an actual upgrade.
+        $class = @ $parameter->getClass();
 
         // If the parameter has no class type-hint, we will return null. This allows
         // parameters to be optional or to have scalar types that are not resolved
