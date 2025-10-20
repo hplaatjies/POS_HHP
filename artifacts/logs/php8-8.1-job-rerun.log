@@ -1,0 +1,453 @@
+php-smoke (8.1)	UNKNOWN STEP	﻿2025-10-17T12:36:27.9041514Z Current runner version: '2.328.0'
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9065562Z ##[group]Runner Image Provisioner
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9066449Z Hosted Compute Agent
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9066954Z Version: 20250912.392
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9067537Z Commit: d921fda672a98b64f4f82364647e2f10b2267d0b
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9068336Z Build Date: 2025-09-12T15:23:14Z
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9068896Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9069405Z ##[group]Operating System
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9070263Z Ubuntu
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9070758Z 24.04.3
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9071178Z LTS
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9071719Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9072171Z ##[group]Runner Image
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9072703Z Image: ubuntu-24.04
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9073248Z Version: 20250929.60.1
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9074245Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250929.60/images/ubuntu/Ubuntu2404-Readme.md
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9075994Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250929.60
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9076923Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9078045Z ##[group]GITHUB_TOKEN Permissions
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9079877Z Contents: read
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9080597Z Metadata: read
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9081211Z Packages: read
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9081660Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9084062Z Secret source: Actions
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9085111Z Prepare workflow directory
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9403758Z Prepare all required actions
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:27.9442203Z Getting action download info
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.2956465Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.4646978Z Download action repository 'shivammathur/setup-php@v2' (SHA:bf6b4fbd49ca58e4608c9c89fba0b8d90bd2a39f)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.6318010Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.8289823Z Complete job name: php-smoke (8.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9031176Z ##[group]Run actions/checkout@v4
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9032112Z with:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9032530Z   repository: hplaatjies/POS_HHP
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9033173Z   token: ***
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9033557Z   ssh-strict: true
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9033961Z   ssh-user: git
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9034361Z   persist-credentials: true
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9034817Z   clean: true
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9035218Z   sparse-checkout-cone-mode: true
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9035711Z   fetch-depth: 1
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9036097Z   fetch-tags: false
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9036503Z   show-progress: true
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9036912Z   lfs: false
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9037294Z   submodules: false
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9037708Z   set-safe-directory: true
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:28.9038352Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0168157Z Syncing repository: hplaatjies/POS_HHP
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0170437Z ##[group]Getting Git version info
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0171177Z Working directory is '/home/runner/work/POS_HHP/POS_HHP'
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0172194Z [command]/usr/bin/git version
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0241055Z git version 2.51.0
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0267056Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0281290Z Temporarily overriding HOME='/home/runner/work/_temp/4442d89d-064a-483b-b71b-522ef5324c98' before making global git config changes
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0283309Z Adding repository directory to the temporary git global config as a safe directory
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0293592Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/POS_HHP/POS_HHP
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0329012Z Deleting the contents of '/home/runner/work/POS_HHP/POS_HHP'
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0332862Z ##[group]Initializing the repository
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0336449Z [command]/usr/bin/git init /home/runner/work/POS_HHP/POS_HHP
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0442028Z hint: Using 'master' as the name for the initial branch. This default branch name
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0443771Z hint: is subject to change. To configure the initial branch name to use in all
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0445336Z hint: of your new repositories, which will suppress this warning, call:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0446770Z hint:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0447588Z hint: 	git config --global init.defaultBranch <name>
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0448472Z hint:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0449028Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0449951Z hint: 'development'. The just-created branch can be renamed via this command:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0450893Z hint:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0451284Z hint: 	git branch -m <name>
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0451731Z hint:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0452490Z hint: Disable this message with "git config set advice.defaultBranchName false"
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0453765Z Initialized empty Git repository in /home/runner/work/POS_HHP/POS_HHP/.git/
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0458266Z [command]/usr/bin/git remote add origin https://github.com/hplaatjies/POS_HHP
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0494146Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0494861Z ##[group]Disabling automatic garbage collection
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0498064Z [command]/usr/bin/git config --local gc.auto 0
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0526085Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0526808Z ##[group]Setting up auth
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0532584Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0562694Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0925885Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.0957124Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.1181936Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.1227829Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.1229722Z ##[group]Fetching the repository
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.1237373Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ea0905081755e255dd3c544506bbd34c81451d5c:refs/remotes/origin/upgrade-maatwebsite-excel
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.6844937Z From https://github.com/hplaatjies/POS_HHP
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.6848182Z  * [new ref]         ea0905081755e255dd3c544506bbd34c81451d5c -> origin/upgrade-maatwebsite-excel
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.6884413Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.6886006Z ##[group]Determining the checkout info
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.6888416Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.6893769Z [command]/usr/bin/git sparse-checkout disable
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.6936854Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.6976401Z ##[group]Checking out the ref
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.6977769Z [command]/usr/bin/git checkout --progress --force -B upgrade-maatwebsite-excel refs/remotes/origin/upgrade-maatwebsite-excel
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.8979586Z Switched to a new branch 'upgrade-maatwebsite-excel'
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.8981684Z branch 'upgrade-maatwebsite-excel' set up to track 'origin/upgrade-maatwebsite-excel'.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.8996791Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.9036615Z [command]/usr/bin/git log -1 --format=%H
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.9058848Z ea0905081755e255dd3c544506bbd34c81451d5c
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.9308903Z ##[group]Run shivammathur/setup-php@v2
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.9310282Z with:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.9311112Z   php-version: 8.1
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.9312003Z   tools: composer
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.9312879Z   ini-file: production
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.9314182Z   github-token: ***
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:29.9315059Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:30.0054413Z [command]/usr/bin/bash /home/runner/work/_actions/shivammathur/setup-php/v2/src/scripts/run.sh
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:30.0330688Z 
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:30.0332752Z [90;1m==> [0m[37;1mSetup PHP[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.6534187Z [32;1m✓ [0m[34;1mPHP [0m[90;1mInstalled PHP 8.1.33[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.6534866Z 
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.6535140Z [90;1m==> [0m[37;1mSetup Tools[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8620832Z [32;1m✓ [0m[34;1mcomposer [0m[90;1mAdded composer 2.8.12[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8621730Z 
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8622142Z [90;1m==> [0m[37;1mSponsor setup-php[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8622948Z [32;1m✓ [0m[34;1msetup-php [0m[90;1mhttps://setup-php.com/sponsor[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8841259Z ##[group]Run composer config platform.php 8.1
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8841736Z [36;1mcomposer config platform.php 8.1[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8842267Z [36;1mcomposer install --no-ansi --no-interaction --no-progress --no-scripts || true[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8883318Z shell: /usr/bin/bash -e {0}
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8883651Z env:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8883955Z   COMPOSER_PROCESS_TIMEOUT: 0
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8884274Z   COMPOSER_NO_INTERACTION: 1
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8884596Z   COMPOSER_NO_AUDIT: 1
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:35.8884895Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3140687Z Installing dependencies from lock file (including require-dev)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3184993Z Verifying lock file contents can be installed on current platform.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3252137Z Warning: The lock file is not up to date with the latest changes in composer.json. You may be getting outdated dependencies. It is recommended that you run `composer update` or `composer update <package name>`.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3385589Z Package operations: 104 installs, 0 updates, 0 removals
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3403235Z   - Downloading kylekatarnls/update-helper (1.2.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3412819Z   - Downloading symfony/finder (v3.4.47)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3416049Z   - Downloading psr/log (1.1.4)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3418752Z   - Downloading symfony/debug (v3.4.47)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3421783Z   - Downloading symfony/polyfill-iconv (v1.33.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3424561Z   - Downloading symfony/polyfill-mbstring (v1.33.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3427307Z   - Downloading symfony/var-dumper (v3.4.47)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3430523Z   - Downloading maximebf/debugbar (v1.18.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3433623Z   - Downloading symfony/polyfill-ctype (v1.33.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3437127Z   - Downloading vlucas/phpdotenv (v2.6.9)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3439810Z   - Downloading symfony/polyfill-php80 (v1.33.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3442598Z   - Downloading symfony/css-selector (v5.4.45)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3445725Z   - Downloading tijsverkoyen/css-to-inline-styles (v2.3.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3446957Z   - Downloading symfony/routing (v3.4.47)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3448801Z   - Downloading symfony/process (v3.4.47)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3452156Z   - Downloading symfony/http-foundation (v3.4.47)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3453711Z   - Downloading symfony/event-dispatcher-contracts (v1.10.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3455261Z   - Downloading symfony/event-dispatcher (v4.4.44)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3457188Z   - Downloading symfony/http-kernel (v3.4.49)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3458543Z   - Downloading symfony/console (v3.4.47)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3460742Z   - Downloading symfony/polyfill-intl-normalizer (v1.33.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3462282Z   - Downloading symfony/polyfill-intl-idn (v1.33.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3464633Z   - Downloading doctrine/deprecations (1.1.4)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3465854Z   - Downloading doctrine/lexer (2.1.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3468419Z   - Downloading egulias/email-validator (3.2.6)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3470884Z   - Downloading swiftmailer/swiftmailer (v6.3.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3473313Z   - Downloading paragonie/random_compat (v9.99.100)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3475429Z   - Downloading ramsey/uuid (3.9.7)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3477102Z   - Downloading psr/simple-cache (1.0.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3479292Z   - Downloading psr/container (1.1.2)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3481034Z   - Downloading symfony/translation-contracts (v1.10.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3482685Z   - Downloading symfony/translation (v4.3.11)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3485129Z   - Downloading nesbot/carbon (1.39.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3487305Z   - Downloading mtdowling/cron-expression (v1.2.3)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3489428Z   - Downloading monolog/monolog (1.27.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3491876Z   - Downloading league/mime-type-detection (1.16.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3493270Z   - Downloading league/flysystem (1.1.10)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3495653Z   - Downloading erusev/parsedown (1.7.4)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3496858Z   - Downloading doctrine/inflector (1.4.4)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3498059Z   - Downloading laravel/framework (v5.5.50)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3501320Z   - Downloading barryvdh/laravel-debugbar (v3.4.2)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3502000Z   - Downloading composer/semver (1.7.2)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3507119Z   - Downloading balping/json-raw-encoder (v1.0.2)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3508674Z   - Downloading consoletvs/charts (6.8.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3510537Z   - Downloading symfony/deprecation-contracts (v2.5.4)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3512693Z   - Downloading fakerphp/faker (v1.24.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3514380Z   - Downloading filp/whoops (2.18.4)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3516230Z   - Downloading nikic/php-parser (v4.19.4)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3518128Z   - Downloading php-parallel-lint/php-console-color (v0.3)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3519670Z   - Downloading php-parallel-lint/php-console-highlighter (v0.5)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3522620Z   - Downloading dnoegel/php-xdg-base-dir (v0.1.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3524462Z   - Downloading psy/psysh (v0.9.12)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3525690Z   - Downloading laravel/tinker (v1.0.10)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3527463Z   - Downloading milon/barcode (5.3.6)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3529284Z   - Downloading hamcrest/hamcrest-php (v1.2.2)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3531480Z   - Downloading mockery/mockery (0.9.11)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3533569Z   - Downloading myclabs/php-enum (1.8.5)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3537929Z   - Downloading nwidart/laravel-modules (3.3.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3539491Z   - Downloading webmozart/assert (1.11.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3541652Z   - Downloading phpstan/phpdoc-parser (2.3.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3543492Z   - Downloading phpdocumentor/reflection-common (2.2.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3544967Z   - Downloading phpdocumentor/type-resolver (1.10.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3546451Z   - Downloading phpdocumentor/reflection-docblock (5.6.3)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3547887Z   - Downloading psr/http-message (1.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3549448Z   - Downloading psr/http-factory (1.1.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3551110Z   - Downloading psr/http-client (1.0.3)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3553599Z   - Downloading markbaker/matrix (3.0.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3554867Z   - Downloading markbaker/complex (3.0.2)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3557251Z   - Downloading maennchen/zipstream-php (2.2.6)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3559294Z   - Downloading ezyang/htmlpurifier (v4.18.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3560779Z   - Downloading composer/pcre (3.3.2)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3563275Z   - Downloading phpoffice/phpspreadsheet (1.30.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3565313Z   - Downloading phpunit/php-token-stream (2.0.2)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3567524Z   - Downloading sebastian/version (2.0.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3568852Z   - Downloading sebastian/resource-operations (1.0.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3570726Z   - Downloading sebastian/recursion-context (3.0.3)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3572324Z   - Downloading sebastian/object-reflector (1.1.3)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3573996Z   - Downloading sebastian/object-enumerator (3.0.5)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3575403Z   - Downloading sebastian/global-state (2.0.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3577283Z   - Downloading sebastian/exporter (3.1.8)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3578760Z   - Downloading sebastian/environment (3.1.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3580654Z   - Downloading sebastian/diff (2.0.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3582084Z   - Downloading sebastian/comparator (2.1.3)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3583932Z   - Downloading phpunit/php-text-template (1.2.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3585311Z   - Downloading doctrine/instantiator (1.5.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3586886Z   - Downloading phpunit/phpunit-mock-objects (5.0.10)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3588058Z   - Downloading phpunit/php-timer (1.0.9)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3589620Z   - Downloading phpunit/php-file-iterator (1.4.5)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3591742Z   - Downloading theseer/tokenizer (1.2.3)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3593263Z   - Downloading sebastian/code-unit-reverse-lookup (1.0.3)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3594507Z   - Downloading phpunit/php-code-coverage (5.3.2)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3596432Z   - Downloading phpspec/prophecy (v1.10.3)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3598281Z   - Downloading phar-io/version (1.0.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3599741Z   - Downloading phar-io/manifest (1.0.1)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3601644Z   - Downloading myclabs/deep-copy (1.13.4)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3602696Z   - Downloading phpunit/phpunit (6.5.14)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3604685Z   - Downloading spatie/laravel-permission (2.38.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3606589Z   - Downloading yajra/laravel-datatables-oracle (v8.13.7)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3608414Z   - Downloading laravelcollective/html (v5.5.4)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3609788Z   - Downloading yajra/laravel-datatables-html (v4.30.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3611848Z   - Downloading maatwebsite/excel (3.1.25)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:36.3613317Z   - Downloading yajra/laravel-datatables-buttons (v4.13.3)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7029486Z   - Installing kylekatarnls/update-helper (1.2.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7597485Z   - Installing symfony/finder (v3.4.47): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7622424Z   - Installing psr/log (1.1.4): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7648615Z   - Installing symfony/debug (v3.4.47): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7701264Z   - Installing symfony/polyfill-iconv (v1.33.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7730739Z   - Installing symfony/polyfill-mbstring (v1.33.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7771042Z   - Installing symfony/var-dumper (v3.4.47): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7788807Z   - Installing maximebf/debugbar (v1.18.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7881091Z   - Installing symfony/polyfill-ctype (v1.33.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7894034Z   - Installing vlucas/phpdotenv (v2.6.9): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7952047Z   - Installing symfony/polyfill-php80 (v1.33.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7990476Z   - Installing symfony/css-selector (v5.4.45): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.7999906Z   - Installing tijsverkoyen/css-to-inline-styles (v2.3.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8008146Z   - Installing symfony/routing (v3.4.47): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8015165Z   - Installing symfony/process (v3.4.47): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8016945Z   - Installing symfony/polyfill-php56 (v1.20.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8027755Z   - Installing symfony/polyfill-php70 (v1.20.0)
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8034095Z   - Installing symfony/http-foundation (v3.4.47): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8036839Z   - Installing symfony/event-dispatcher-contracts (v1.10.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8039637Z   - Installing symfony/event-dispatcher (v4.4.44): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8127223Z   - Installing symfony/http-kernel (v3.4.49): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8127858Z   - Installing symfony/console (v3.4.47): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8128695Z   - Installing symfony/polyfill-intl-normalizer (v1.33.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8129532Z   - Installing symfony/polyfill-intl-idn (v1.33.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8130512Z   - Installing doctrine/deprecations (1.1.4): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8131208Z   - Installing doctrine/lexer (2.1.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8131835Z   - Installing egulias/email-validator (3.2.6): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8132518Z   - Installing swiftmailer/swiftmailer (v6.3.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8132990Z   - Installing paragonie/random_compat (v9.99.100): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8133400Z   - Installing ramsey/uuid (3.9.7): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8133754Z   - Installing psr/simple-cache (1.0.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8134088Z   - Installing psr/container (1.1.2): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8134498Z   - Installing symfony/translation-contracts (v1.10.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8134922Z   - Installing symfony/translation (v4.3.11): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8135544Z   - Installing nesbot/carbon (1.39.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8135922Z   - Installing mtdowling/cron-expression (v1.2.3): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8136323Z   - Installing monolog/monolog (1.27.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8136830Z   - Installing league/mime-type-detection (1.16.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8137216Z   - Installing league/flysystem (1.1.10): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8137561Z   - Installing erusev/parsedown (1.7.4): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8137895Z   - Installing doctrine/inflector (1.4.4): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8138251Z   - Installing laravel/framework (v5.5.50): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8187807Z   - Installing barryvdh/laravel-debugbar (v3.4.2): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8190835Z   - Installing composer/semver (1.7.2): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8194040Z   - Installing balping/json-raw-encoder (v1.0.2): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8197051Z   - Installing consoletvs/charts (6.8.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8200222Z   - Installing symfony/deprecation-contracts (v2.5.4): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8203165Z   - Installing fakerphp/faker (v1.24.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8205889Z   - Installing filp/whoops (2.18.4): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8208631Z   - Installing nikic/php-parser (v4.19.4): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8212239Z   - Installing php-parallel-lint/php-console-color (v0.3): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8215113Z   - Installing php-parallel-lint/php-console-highlighter (v0.5): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8217931Z   - Installing dnoegel/php-xdg-base-dir (v0.1.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8220673Z   - Installing psy/psysh (v0.9.12): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8223830Z   - Installing laravel/tinker (v1.0.10): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8226571Z   - Installing milon/barcode (5.3.6): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8229365Z   - Installing hamcrest/hamcrest-php (v1.2.2): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8232462Z   - Installing mockery/mockery (0.9.11): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8235289Z   - Installing myclabs/php-enum (1.8.5): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8238168Z   - Installing nwidart/laravel-modules (3.3.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8241277Z   - Installing webmozart/assert (1.11.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8244147Z   - Installing phpstan/phpdoc-parser (2.3.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8247173Z   - Installing phpdocumentor/reflection-common (2.2.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8249980Z   - Installing phpdocumentor/type-resolver (1.10.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8253266Z   - Installing phpdocumentor/reflection-docblock (5.6.3): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8256080Z   - Installing psr/http-message (1.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8259026Z   - Installing psr/http-factory (1.1.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8262081Z   - Installing psr/http-client (1.0.3): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8264880Z   - Installing markbaker/matrix (3.0.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8267804Z   - Installing markbaker/complex (3.0.2): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8270781Z   - Installing maennchen/zipstream-php (2.2.6): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8273660Z   - Installing ezyang/htmlpurifier (v4.18.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8276449Z   - Installing composer/pcre (3.3.2): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8279235Z   - Installing phpoffice/phpspreadsheet (1.30.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8282335Z   - Installing phpunit/php-token-stream (2.0.2): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8285190Z   - Installing sebastian/version (2.0.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8288028Z   - Installing sebastian/resource-operations (1.0.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8290706Z   - Installing sebastian/recursion-context (3.0.3): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8293652Z   - Installing sebastian/object-reflector (1.1.3): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8296261Z   - Installing sebastian/object-enumerator (3.0.5): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8299131Z   - Installing sebastian/global-state (2.0.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8301880Z   - Installing sebastian/exporter (3.1.8): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8304650Z   - Installing sebastian/environment (3.1.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8307283Z   - Installing sebastian/diff (2.0.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8309963Z   - Installing sebastian/comparator (2.1.3): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8312922Z   - Installing phpunit/php-text-template (1.2.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8315604Z   - Installing doctrine/instantiator (1.5.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8318409Z   - Installing phpunit/phpunit-mock-objects (5.0.10): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8321150Z   - Installing phpunit/php-timer (1.0.9): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8323940Z   - Installing phpunit/php-file-iterator (1.4.5): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8326706Z   - Installing theseer/tokenizer (1.2.3): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8329492Z   - Installing sebastian/code-unit-reverse-lookup (1.0.3): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8332355Z   - Installing phpunit/php-code-coverage (5.3.2): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8334932Z   - Installing phpspec/prophecy (v1.10.3): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8337582Z   - Installing phar-io/version (1.0.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8340574Z   - Installing phar-io/manifest (1.0.1): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8343350Z   - Installing myclabs/deep-copy (1.13.4): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8346017Z   - Installing phpunit/phpunit (6.5.14): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8348767Z   - Installing spatie/laravel-permission (2.38.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8351694Z   - Installing yajra/laravel-datatables-oracle (v8.13.7): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8354368Z   - Installing laravelcollective/html (v5.5.4): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8357162Z   - Installing yajra/laravel-datatables-html (v4.30.0): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8360024Z   - Installing maatwebsite/excel (3.1.25): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:37.8363005Z   - Installing yajra/laravel-datatables-buttons (v4.13.3): Extracting archive
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:39.0596692Z Package laravelcollective/html is abandoned, you should avoid using it. Use spatie/laravel-html instead.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:39.0598383Z Package mtdowling/cron-expression is abandoned, you should avoid using it. Use dragonmantank/cron-expression instead.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:39.0599876Z Package swiftmailer/swiftmailer is abandoned, you should avoid using it. Use symfony/mailer instead.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:39.0601403Z Package symfony/debug is abandoned, you should avoid using it. Use symfony/error-handler instead.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:39.0602764Z Package maximebf/debugbar is abandoned, you should avoid using it. Use php-debugbar/php-debugbar instead.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:39.0604158Z Package phpunit/php-token-stream is abandoned, you should avoid using it. No replacement was suggested.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:39.0605538Z Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:39.0606520Z Generating optimized autoload files
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.2722084Z Carbon 1 is deprecated, see how to migrate to Carbon 2.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.2723224Z https://carbon.nesbot.com/docs/#api-carbon-2
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.2724267Z     You can run './vendor/bin/upgrade-carbon' to get help in updating carbon and other frameworks and libraries that depend on it.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.2732949Z 50 packages you are using are looking for funding.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.2733531Z Use the `composer fund` command to find out more!
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3124896Z ##[group]Run mkdir -p bootstrap/cache
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3125407Z [36;1mmkdir -p bootstrap/cache[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3125689Z [36;1mtouch bootstrap/cache/packages.php[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3125978Z [36;1mtouch bootstrap/cache/services.php[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3126307Z [36;1mmkdir -p storage/framework/{cache,sessions,views}[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3126647Z [36;1mchmod -R 0777 bootstrap storage || true[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3126966Z [36;1mif [ ! -f .env ]; then cp .env.example .env || true; fi[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3161783Z shell: /usr/bin/bash -e {0}
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3162039Z env:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3162236Z   COMPOSER_PROCESS_TIMEOUT: 0
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3162505Z   COMPOSER_NO_INTERACTION: 1
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3162753Z   COMPOSER_NO_AUDIT: 1
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3162977Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3288301Z cp: cannot stat '.env.example': No such file or directory
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3320237Z ##[group]Run php artisan --version > artisan-version.txt || true
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3320790Z [36;1mphp artisan --version > artisan-version.txt || true[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3321293Z [36;1mphp artisan route:list --no-ansi > route-list.txt || true[0m
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3354712Z shell: /usr/bin/bash -e {0}
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3354986Z env:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3355201Z   COMPOSER_PROCESS_TIMEOUT: 0
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3355481Z   COMPOSER_NO_INTERACTION: 1
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3355747Z   COMPOSER_NO_AUDIT: 1
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3355976Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3984093Z PHP Fatal error:  During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\Support\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php:1693
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3986777Z Stack trace:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3987929Z #0 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php(19): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3989518Z #1 /home/runner/work/POS_HHP/POS_HHP/vendor/composer/ClassLoader.php(576): include('...')
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3990823Z #2 /home/runner/work/POS_HHP/POS_HHP/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3992254Z #3 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/helpers.php(423): Composer\Autoload\ClassLoader->loadClass()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3993850Z #4 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(80): collect()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3995646Z #5 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterFacades.php(26): Illuminate\Foundation\PackageManifest->aliases()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3997683Z #6 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(213): Illuminate\Foundation\Bootstrap\RegisterFacades->bootstrap()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.3999608Z #7 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(296): Illuminate\Foundation\Application->bootstrapWith()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4001625Z #8 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(119): Illuminate\Foundation\Console\Kernel->bootstrap()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4003020Z #9 /home/runner/work/POS_HHP/POS_HHP/artisan(35): Illuminate\Foundation\Console\Kernel->handle()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4004144Z #10 {main} in /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php on line 19
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4005875Z PHP Fatal error:  Uncaught ErrorException: Function must be enabled in php.ini by setting 'xdebug.mode' to 'develop' in /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php:35
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4007121Z Stack trace:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4007706Z #0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4009180Z #1 /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php(35): xdebug_get_function_stack()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4011176Z #2 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(137): Symfony\Component\Debug\Exception\FatalErrorException->__construct()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4013528Z #3 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(123): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4015060Z #4 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4015697Z #5 {main}
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4016702Z   thrown in /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php on line 35
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4641727Z PHP Fatal error:  During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\Support\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php:1693
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4644459Z Stack trace:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4645598Z #0 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php(19): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4647115Z #1 /home/runner/work/POS_HHP/POS_HHP/vendor/composer/ClassLoader.php(576): include('...')
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4648141Z #2 /home/runner/work/POS_HHP/POS_HHP/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4649563Z #3 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/helpers.php(423): Composer\Autoload\ClassLoader->loadClass()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4651392Z #4 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(80): collect()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4653190Z #5 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterFacades.php(26): Illuminate\Foundation\PackageManifest->aliases()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4655239Z #6 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(213): Illuminate\Foundation\Bootstrap\RegisterFacades->bootstrap()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4657199Z #7 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(296): Illuminate\Foundation\Application->bootstrapWith()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4659102Z #8 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(119): Illuminate\Foundation\Console\Kernel->bootstrap()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4660705Z #9 /home/runner/work/POS_HHP/POS_HHP/artisan(35): Illuminate\Foundation\Console\Kernel->handle()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4661856Z #10 {main} in /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php on line 19
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4663599Z PHP Fatal error:  Uncaught ErrorException: Function must be enabled in php.ini by setting 'xdebug.mode' to 'develop' in /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php:35
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4664832Z Stack trace:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4665363Z #0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4666512Z #1 /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php(35): xdebug_get_function_stack()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4668381Z #2 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(137): Symfony\Component\Debug\Exception\FatalErrorException->__construct()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4671347Z #3 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(123): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4672943Z #4 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4673578Z #5 {main}
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4674270Z   thrown in /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php on line 35
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4800541Z ##[group]Run actions/upload-artifact@v4
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4800836Z with:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4801032Z   name: pr-smoke-php8-18592889129
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4801496Z   path: artisan-version.txt
+php-smoke (8.1)	UNKNOWN STEP	route-list.txt
+php-smoke (8.1)	UNKNOWN STEP	bootstrap/cache/*.php
+php-smoke (8.1)	UNKNOWN STEP	outdated-direct.json
+php-smoke (8.1)	UNKNOWN STEP	outdated-all.json
+php-smoke (8.1)	UNKNOWN STEP	
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4801973Z   if-no-files-found: warn
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4802190Z   compression-level: 6
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4802381Z   overwrite: false
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4802581Z   include-hidden-files: false
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4802806Z env:
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4802983Z   COMPOSER_PROCESS_TIMEOUT: 0
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4803200Z   COMPOSER_NO_INTERACTION: 1
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4803411Z   COMPOSER_NO_AUDIT: 1
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.4803594Z ##[endgroup]
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.6987014Z Multiple search paths detected. Calculating the least common ancestor of all paths
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.6992676Z The least common ancestor is /home/runner/work/POS_HHP/POS_HHP. This will be the root directory of the artifact
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.6993649Z With the provided path, there will be 4 files uploaded
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.6997800Z Artifact name is valid!
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.6999260Z Root directory input is valid!
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.7737622Z ##[error]Failed to CreateArtifact: Received non-retryable error: Failed request: (409) Conflict: an artifact with this name already exists on the workflow run
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.7895835Z Post job cleanup.
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.8849411Z [command]/usr/bin/git version
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.8888424Z git version 2.51.0
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.8932507Z Temporarily overriding HOME='/home/runner/work/_temp/a25d119c-548b-462d-b6c2-49fa2d965d9d' before making global git config changes
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.8933759Z Adding repository directory to the temporary git global config as a safe directory
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.8946838Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/POS_HHP/POS_HHP
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.8981674Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.9015816Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.9247232Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.9268921Z http.https://github.com/.extraheader
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.9282297Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.9314837Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+php-smoke (8.1)	UNKNOWN STEP	2025-10-17T12:36:40.9648303Z Cleaning up orphan processes

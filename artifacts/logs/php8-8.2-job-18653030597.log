@@ -1,0 +1,531 @@
+php-smoke (8.2)	Set up job	﻿2025-10-20T13:09:01.5126069Z Current runner version: '2.328.0'
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5150630Z ##[group]Runner Image Provisioner
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5151459Z Hosted Compute Agent
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5152108Z Version: 20251013.424
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5152682Z Commit: cfdd8bfed34d71a55b72df4d2e82343c3fc2bab3
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5153369Z Build Date: 2025-10-13T20:22:23Z
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5153949Z ##[endgroup]
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5154485Z ##[group]Operating System
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5154994Z Ubuntu
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5155491Z 24.04.3
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5155960Z LTS
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5156764Z ##[endgroup]
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5157216Z ##[group]Runner Image
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5157865Z Image: ubuntu-24.04
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5158357Z Version: 20251014.76.1
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5159308Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251014.76/images/ubuntu/Ubuntu2404-Readme.md
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5160807Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251014.76
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5161982Z ##[endgroup]
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5163044Z ##[group]GITHUB_TOKEN Permissions
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5165100Z Contents: read
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5165749Z Metadata: read
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5166499Z Packages: read
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5166985Z ##[endgroup]
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5168987Z Secret source: Actions
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5169631Z Prepare workflow directory
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5490304Z Prepare all required actions
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.5528368Z Getting action download info
+php-smoke (8.2)	Set up job	2025-10-20T13:09:01.9402420Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+php-smoke (8.2)	Set up job	2025-10-20T13:09:02.1328875Z Download action repository 'shivammathur/setup-php@v2' (SHA:bf6b4fbd49ca58e4608c9c89fba0b8d90bd2a39f)
+php-smoke (8.2)	Set up job	2025-10-20T13:09:02.6180145Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+php-smoke (8.2)	Set up job	2025-10-20T13:09:02.8183597Z Complete job name: php-smoke (8.2)
+php-smoke (8.2)	Run actions/checkout@v4	﻿2025-10-20T13:09:02.8968117Z ##[group]Run actions/checkout@v4
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8969423Z with:
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8970186Z   repository: hplaatjies/POS_HHP
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8971421Z   token: ***
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8972153Z   ssh-strict: true
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8972911Z   ssh-user: git
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8973689Z   persist-credentials: true
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8974571Z   clean: true
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8975358Z   sparse-checkout-cone-mode: true
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8976480Z   fetch-depth: 1
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8977238Z   fetch-tags: false
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8978062Z   show-progress: true
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8978852Z   lfs: false
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8979565Z   submodules: false
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8980363Z   set-safe-directory: true
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:02.8981452Z ##[endgroup]
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0060591Z Syncing repository: hplaatjies/POS_HHP
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0063157Z ##[group]Getting Git version info
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0064447Z Working directory is '/home/runner/work/POS_HHP/POS_HHP'
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0066575Z [command]/usr/bin/git version
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0142537Z git version 2.51.0
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0170391Z ##[endgroup]
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0185328Z Temporarily overriding HOME='/home/runner/work/_temp/fd2debab-87b1-4f17-9549-c451d0fd8cb8' before making global git config changes
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0189129Z Adding repository directory to the temporary git global config as a safe directory
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0197408Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/POS_HHP/POS_HHP
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0233632Z Deleting the contents of '/home/runner/work/POS_HHP/POS_HHP'
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0237338Z ##[group]Initializing the repository
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0241188Z [command]/usr/bin/git init /home/runner/work/POS_HHP/POS_HHP
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0351536Z hint: Using 'master' as the name for the initial branch. This default branch name
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0354389Z hint: is subject to change. To configure the initial branch name to use in all
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0357601Z hint: of your new repositories, which will suppress this warning, call:
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0359562Z hint:
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0360696Z hint: 	git config --global init.defaultBranch <name>
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0362069Z hint:
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0363172Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0365256Z hint: 'development'. The just-created branch can be renamed via this command:
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0367575Z hint:
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0368331Z hint: 	git branch -m <name>
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0369181Z hint:
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0370329Z hint: Disable this message with "git config set advice.defaultBranchName false"
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0372439Z Initialized empty Git repository in /home/runner/work/POS_HHP/POS_HHP/.git/
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0375439Z [command]/usr/bin/git remote add origin https://github.com/hplaatjies/POS_HHP
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0410114Z ##[endgroup]
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0411741Z ##[group]Disabling automatic garbage collection
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0413691Z [command]/usr/bin/git config --local gc.auto 0
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0441566Z ##[endgroup]
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0443128Z ##[group]Setting up auth
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0447038Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0476933Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0835355Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.0865316Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.1084235Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.1123003Z ##[endgroup]
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.1125127Z ##[group]Fetching the repository
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.1141437Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e6136f4a7fafba8557f6f0e599b77e46233e48ee:refs/remotes/origin/upgrade-maatwebsite-excel
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.9489812Z From https://github.com/hplaatjies/POS_HHP
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.9492093Z  * [new ref]         e6136f4a7fafba8557f6f0e599b77e46233e48ee -> origin/upgrade-maatwebsite-excel
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.9521907Z ##[endgroup]
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.9523512Z ##[group]Determining the checkout info
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.9525011Z ##[endgroup]
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.9528714Z [command]/usr/bin/git sparse-checkout disable
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.9569247Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.9597471Z ##[group]Checking out the ref
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:03.9600700Z [command]/usr/bin/git checkout --progress --force -B upgrade-maatwebsite-excel refs/remotes/origin/upgrade-maatwebsite-excel
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:04.1574894Z Switched to a new branch 'upgrade-maatwebsite-excel'
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:04.1578539Z branch 'upgrade-maatwebsite-excel' set up to track 'origin/upgrade-maatwebsite-excel'.
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:04.1593745Z ##[endgroup]
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:04.1630938Z [command]/usr/bin/git log -1 --format=%H
+php-smoke (8.2)	Run actions/checkout@v4	2025-10-20T13:09:04.1654135Z e6136f4a7fafba8557f6f0e599b77e46233e48ee
+php-smoke (8.2)	Setup PHP	﻿2025-10-20T13:09:04.1897022Z ##[group]Run shivammathur/setup-php@v2
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:04.1898050Z with:
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:04.1898727Z   php-version: 8.2
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:04.1899469Z   tools: composer
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:04.1900211Z   ini-file: production
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:04.1901332Z   github-token: ***
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:04.1902055Z ##[endgroup]
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:04.2610192Z [command]/usr/bin/bash /home/runner/work/_actions/shivammathur/setup-php/v2/src/scripts/run.sh
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:04.2857156Z 
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:04.2858602Z [90;1m==> [0m[37;1mSetup PHP[0m
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:08.1312326Z [32;1m✓ [0m[34;1mPHP [0m[90;1mInstalled PHP 8.2.29[0m
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:08.1313140Z 
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:08.1317000Z [90;1m==> [0m[37;1mSetup Tools[0m
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:08.4841722Z [32;1m✓ [0m[34;1mcomposer [0m[90;1mAdded composer 2.8.12[0m
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:08.4842507Z 
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:08.4842852Z [90;1m==> [0m[37;1mSponsor setup-php[0m
+php-smoke (8.2)	Setup PHP	2025-10-20T13:09:08.4843740Z [32;1m✓ [0m[34;1msetup-php [0m[90;1mhttps://setup-php.com/sponsor[0m
+php-smoke (8.2)	Composer install (from lock)	﻿2025-10-20T13:09:08.5052940Z ##[group]Run composer config platform.php 8.2
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.5053468Z [36;1mcomposer config platform.php 8.2[0m
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.5053908Z [36;1mcomposer install --no-ansi --no-interaction --no-progress --no-scripts || true[0m
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.5092213Z shell: /usr/bin/bash -e {0}
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.5092482Z env:
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.5092668Z   COMPOSER_PROCESS_TIMEOUT: 0
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.5092915Z   COMPOSER_NO_INTERACTION: 1
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.5093137Z   COMPOSER_NO_AUDIT: 1
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.5093369Z ##[endgroup]
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9116730Z Installing dependencies from lock file (including require-dev)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9140180Z Verifying lock file contents can be installed on current platform.
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9281847Z Warning: The lock file is not up to date with the latest changes in composer.json. You may be getting outdated dependencies. It is recommended that you run `composer update` or `composer update <package name>`.
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9413598Z Package operations: 104 installs, 0 updates, 0 removals
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9429789Z   - Downloading kylekatarnls/update-helper (1.2.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9439213Z   - Downloading symfony/finder (v3.4.47)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9442283Z   - Downloading psr/log (1.1.4)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9445037Z   - Downloading symfony/debug (v3.4.47)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9447837Z   - Downloading symfony/polyfill-iconv (v1.33.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9450544Z   - Downloading symfony/polyfill-mbstring (v1.33.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9453133Z   - Downloading symfony/var-dumper (v3.4.47)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9456066Z   - Downloading maximebf/debugbar (v1.18.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9458853Z   - Downloading symfony/polyfill-ctype (v1.33.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9461732Z   - Downloading vlucas/phpdotenv (v2.6.9)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9464297Z   - Downloading symfony/polyfill-php80 (v1.33.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9467012Z   - Downloading symfony/css-selector (v5.4.45)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9470086Z   - Downloading tijsverkoyen/css-to-inline-styles (v2.3.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9471434Z   - Downloading symfony/routing (v3.4.47)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9473274Z   - Downloading symfony/process (v3.4.47)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9476917Z   - Downloading symfony/http-foundation (v3.4.47)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9478749Z   - Downloading symfony/event-dispatcher-contracts (v1.10.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9480630Z   - Downloading symfony/event-dispatcher (v4.4.44)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9487679Z   - Downloading symfony/http-kernel (v3.4.49)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9488256Z   - Downloading symfony/console (v3.4.47)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9488812Z   - Downloading symfony/polyfill-intl-normalizer (v1.33.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9489413Z   - Downloading symfony/polyfill-intl-idn (v1.33.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9492195Z   - Downloading doctrine/deprecations (1.1.4)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9493160Z   - Downloading doctrine/lexer (2.1.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9493959Z   - Downloading egulias/email-validator (3.2.6)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9495830Z   - Downloading swiftmailer/swiftmailer (v6.3.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9498233Z   - Downloading paragonie/random_compat (v9.99.100)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9501568Z   - Downloading ramsey/uuid (3.9.7)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9502497Z   - Downloading psr/simple-cache (1.0.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9503490Z   - Downloading psr/container (1.1.2)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9505413Z   - Downloading symfony/translation-contracts (v1.10.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9507407Z   - Downloading symfony/translation (v4.3.11)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9509843Z   - Downloading nesbot/carbon (1.39.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9512022Z   - Downloading mtdowling/cron-expression (v1.2.3)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9514086Z   - Downloading monolog/monolog (1.27.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9517707Z   - Downloading league/mime-type-detection (1.16.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9518983Z   - Downloading league/flysystem (1.1.10)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9520207Z   - Downloading erusev/parsedown (1.7.4)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9522014Z   - Downloading doctrine/inflector (1.4.4)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9523311Z   - Downloading laravel/framework (v5.5.50)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9525635Z   - Downloading barryvdh/laravel-debugbar (v3.4.2)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9527799Z   - Downloading composer/semver (1.7.2)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9532359Z   - Downloading balping/json-raw-encoder (v1.0.2)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9534640Z   - Downloading consoletvs/charts (6.8.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9536551Z   - Downloading symfony/deprecation-contracts (v2.5.4)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9539551Z   - Downloading fakerphp/faker (v1.24.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9541634Z   - Downloading filp/whoops (2.18.4)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9543461Z   - Downloading nikic/php-parser (v4.19.4)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9545902Z   - Downloading php-parallel-lint/php-console-color (v0.3)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9547968Z   - Downloading php-parallel-lint/php-console-highlighter (v0.5)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9550640Z   - Downloading dnoegel/php-xdg-base-dir (v0.1.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9554345Z   - Downloading psy/psysh (v0.9.12)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9555210Z   - Downloading laravel/tinker (v1.0.10)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9562775Z   - Downloading milon/barcode (5.3.6)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9564666Z   - Downloading hamcrest/hamcrest-php (v1.2.2)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9565230Z   - Downloading mockery/mockery (0.9.11)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9565720Z   - Downloading myclabs/php-enum (1.8.5)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9568943Z   - Downloading nwidart/laravel-modules (3.3.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9569474Z   - Downloading webmozart/assert (1.11.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9571753Z   - Downloading phpstan/phpdoc-parser (2.3.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9577353Z   - Downloading phpdocumentor/reflection-common (2.2.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9578358Z   - Downloading phpdocumentor/type-resolver (1.10.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9580810Z   - Downloading phpdocumentor/reflection-docblock (5.6.3)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9581480Z   - Downloading psr/http-message (1.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9581972Z   - Downloading psr/http-factory (1.1.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9582486Z   - Downloading psr/http-client (1.0.3)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9583176Z   - Downloading markbaker/matrix (3.0.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9584652Z   - Downloading markbaker/complex (3.0.2)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9588168Z   - Downloading maennchen/zipstream-php (2.2.6)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9589251Z   - Downloading ezyang/htmlpurifier (v4.18.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9591191Z   - Downloading composer/pcre (3.3.2)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9593910Z   - Downloading phpoffice/phpspreadsheet (1.30.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9597141Z   - Downloading phpunit/php-token-stream (2.0.2)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9598138Z   - Downloading sebastian/version (2.0.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9599819Z   - Downloading sebastian/resource-operations (1.0.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9601714Z   - Downloading sebastian/recursion-context (3.0.3)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9603334Z   - Downloading sebastian/object-reflector (1.1.3)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9604894Z   - Downloading sebastian/object-enumerator (3.0.5)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9608572Z   - Downloading sebastian/global-state (2.0.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9609517Z   - Downloading sebastian/exporter (3.1.8)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9610415Z   - Downloading sebastian/environment (3.1.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9611704Z   - Downloading sebastian/diff (2.0.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9615412Z   - Downloading sebastian/comparator (2.1.3)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9616880Z   - Downloading phpunit/php-text-template (1.2.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9618365Z   - Downloading doctrine/instantiator (1.5.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9620049Z   - Downloading phpunit/phpunit-mock-objects (5.0.10)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9621718Z   - Downloading phpunit/php-timer (1.0.9)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9623408Z   - Downloading phpunit/php-file-iterator (1.4.5)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9625886Z   - Downloading theseer/tokenizer (1.2.3)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9627530Z   - Downloading sebastian/code-unit-reverse-lookup (1.0.3)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9629084Z   - Downloading phpunit/php-code-coverage (5.3.2)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9631484Z   - Downloading phpspec/prophecy (v1.10.3)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9633645Z   - Downloading phar-io/version (1.0.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9635061Z   - Downloading phar-io/manifest (1.0.1)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9636846Z   - Downloading myclabs/deep-copy (1.13.4)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9638485Z   - Downloading phpunit/phpunit (6.5.14)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9641065Z   - Downloading spatie/laravel-permission (2.38.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9643425Z   - Downloading yajra/laravel-datatables-oracle (v8.13.7)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9645526Z   - Downloading laravelcollective/html (v5.5.4)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9647279Z   - Downloading yajra/laravel-datatables-html (v4.30.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9649670Z   - Downloading maatwebsite/excel (3.1.25)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:08.9651228Z   - Downloading yajra/laravel-datatables-buttons (v4.13.3)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.6891319Z   - Installing kylekatarnls/update-helper (1.2.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7248234Z   - Installing symfony/finder (v3.4.47): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7278131Z   - Installing psr/log (1.1.4): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7314523Z   - Installing symfony/debug (v3.4.47): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7357753Z   - Installing symfony/polyfill-iconv (v1.33.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7399223Z   - Installing symfony/polyfill-mbstring (v1.33.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7554191Z   - Installing symfony/var-dumper (v3.4.47): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7573155Z   - Installing maximebf/debugbar (v1.18.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7586905Z   - Installing symfony/polyfill-ctype (v1.33.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7622230Z   - Installing vlucas/phpdotenv (v2.6.9): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7672643Z   - Installing symfony/polyfill-php80 (v1.33.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7717182Z   - Installing symfony/css-selector (v5.4.45): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7718113Z   - Installing tijsverkoyen/css-to-inline-styles (v2.3.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7724361Z   - Installing symfony/routing (v3.4.47): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7729417Z   - Installing symfony/process (v3.4.47): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7732744Z   - Installing symfony/polyfill-php56 (v1.20.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7741914Z   - Installing symfony/polyfill-php70 (v1.20.0)
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7748791Z   - Installing symfony/http-foundation (v3.4.47): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7752248Z   - Installing symfony/event-dispatcher-contracts (v1.10.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7755087Z   - Installing symfony/event-dispatcher (v4.4.44): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7758946Z   - Installing symfony/http-kernel (v3.4.49): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7762425Z   - Installing symfony/console (v3.4.47): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7765963Z   - Installing symfony/polyfill-intl-normalizer (v1.33.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7770677Z   - Installing symfony/polyfill-intl-idn (v1.33.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7773929Z   - Installing doctrine/deprecations (1.1.4): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7777578Z   - Installing doctrine/lexer (2.1.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7780672Z   - Installing egulias/email-validator (3.2.6): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7783918Z   - Installing swiftmailer/swiftmailer (v6.3.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7787310Z   - Installing paragonie/random_compat (v9.99.100): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7790882Z   - Installing ramsey/uuid (3.9.7): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7793761Z   - Installing psr/simple-cache (1.0.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7797343Z   - Installing psr/container (1.1.2): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7800522Z   - Installing symfony/translation-contracts (v1.10.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7803708Z   - Installing symfony/translation (v4.3.11): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7807425Z   - Installing nesbot/carbon (1.39.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7811043Z   - Installing mtdowling/cron-expression (v1.2.3): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7814539Z   - Installing monolog/monolog (1.27.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7818243Z   - Installing league/mime-type-detection (1.16.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7821476Z   - Installing league/flysystem (1.1.10): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7824551Z   - Installing erusev/parsedown (1.7.4): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7827403Z   - Installing doctrine/inflector (1.4.4): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7830238Z   - Installing laravel/framework (v5.5.50): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7894764Z   - Installing barryvdh/laravel-debugbar (v3.4.2): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7898413Z   - Installing composer/semver (1.7.2): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7901638Z   - Installing balping/json-raw-encoder (v1.0.2): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7905132Z   - Installing consoletvs/charts (6.8.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7908569Z   - Installing symfony/deprecation-contracts (v2.5.4): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7911757Z   - Installing fakerphp/faker (v1.24.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7914655Z   - Installing filp/whoops (2.18.4): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7917750Z   - Installing nikic/php-parser (v4.19.4): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7920839Z   - Installing php-parallel-lint/php-console-color (v0.3): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7924056Z   - Installing php-parallel-lint/php-console-highlighter (v0.5): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7927343Z   - Installing dnoegel/php-xdg-base-dir (v0.1.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7930469Z   - Installing psy/psysh (v0.9.12): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7933833Z   - Installing laravel/tinker (v1.0.10): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7937110Z   - Installing milon/barcode (5.3.6): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7940176Z   - Installing hamcrest/hamcrest-php (v1.2.2): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7943132Z   - Installing mockery/mockery (0.9.11): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7946117Z   - Installing myclabs/php-enum (1.8.5): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7949222Z   - Installing nwidart/laravel-modules (3.3.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7952106Z   - Installing webmozart/assert (1.11.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7954960Z   - Installing phpstan/phpdoc-parser (2.3.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7958619Z   - Installing phpdocumentor/reflection-common (2.2.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7961861Z   - Installing phpdocumentor/type-resolver (1.10.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7964901Z   - Installing phpdocumentor/reflection-docblock (5.6.3): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7968101Z   - Installing psr/http-message (1.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7971118Z   - Installing psr/http-factory (1.1.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7974076Z   - Installing psr/http-client (1.0.3): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7977687Z   - Installing markbaker/matrix (3.0.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7980061Z   - Installing markbaker/complex (3.0.2): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7983111Z   - Installing maennchen/zipstream-php (2.2.6): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7985978Z   - Installing ezyang/htmlpurifier (v4.18.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7989041Z   - Installing composer/pcre (3.3.2): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7992029Z   - Installing phpoffice/phpspreadsheet (1.30.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7995028Z   - Installing phpunit/php-token-stream (2.0.2): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.7998042Z   - Installing sebastian/version (2.0.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8001152Z   - Installing sebastian/resource-operations (1.0.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8004314Z   - Installing sebastian/recursion-context (3.0.3): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8007174Z   - Installing sebastian/object-reflector (1.1.3): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8010120Z   - Installing sebastian/object-enumerator (3.0.5): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8012940Z   - Installing sebastian/global-state (2.0.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8015841Z   - Installing sebastian/exporter (3.1.8): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8018883Z   - Installing sebastian/environment (3.1.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8021839Z   - Installing sebastian/diff (2.0.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8024799Z   - Installing sebastian/comparator (2.1.3): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8028214Z   - Installing phpunit/php-text-template (1.2.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8030945Z   - Installing doctrine/instantiator (1.5.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8034140Z   - Installing phpunit/phpunit-mock-objects (5.0.10): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8037330Z   - Installing phpunit/php-timer (1.0.9): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8040020Z   - Installing phpunit/php-file-iterator (1.4.5): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8043175Z   - Installing theseer/tokenizer (1.2.3): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8046391Z   - Installing sebastian/code-unit-reverse-lookup (1.0.3): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8049554Z   - Installing phpunit/php-code-coverage (5.3.2): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8052575Z   - Installing phpspec/prophecy (v1.10.3): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8056583Z   - Installing phar-io/version (1.0.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8059081Z   - Installing phar-io/manifest (1.0.1): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8061497Z   - Installing myclabs/deep-copy (1.13.4): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8063921Z   - Installing phpunit/phpunit (6.5.14): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8066765Z   - Installing spatie/laravel-permission (2.38.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8069289Z   - Installing yajra/laravel-datatables-oracle (v8.13.7): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8071805Z   - Installing laravelcollective/html (v5.5.4): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8074413Z   - Installing yajra/laravel-datatables-html (v4.30.0): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8076946Z   - Installing maatwebsite/excel (3.1.25): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:11.8079811Z   - Installing yajra/laravel-datatables-buttons (v4.13.3): Extracting archive
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:13.1519801Z Package laravelcollective/html is abandoned, you should avoid using it. Use spatie/laravel-html instead.
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:13.1521396Z Package mtdowling/cron-expression is abandoned, you should avoid using it. Use dragonmantank/cron-expression instead.
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:13.1522565Z Package swiftmailer/swiftmailer is abandoned, you should avoid using it. Use symfony/mailer instead.
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:13.1523410Z Package symfony/debug is abandoned, you should avoid using it. Use symfony/error-handler instead.
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:13.1524434Z Package maximebf/debugbar is abandoned, you should avoid using it. Use php-debugbar/php-debugbar instead.
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:13.1525371Z Package phpunit/php-token-stream is abandoned, you should avoid using it. No replacement was suggested.
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:13.1526543Z Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:13.1527264Z Generating optimized autoload files
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:14.3953348Z Carbon 1 is deprecated, see how to migrate to Carbon 2.
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:14.3953925Z https://carbon.nesbot.com/docs/#api-carbon-2
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:14.3954680Z     You can run './vendor/bin/upgrade-carbon' to get help in updating carbon and other frameworks and libraries that depend on it.
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:14.3963353Z 50 packages you are using are looking for funding.
+php-smoke (8.2)	Composer install (from lock)	2025-10-20T13:09:14.3964167Z Use the `composer fund` command to find out more!
+php-smoke (8.2)	Prepare minimal runtime	﻿2025-10-20T13:09:14.4363419Z ##[group]Run mkdir -p bootstrap/cache
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4364125Z [36;1mmkdir -p bootstrap/cache[0m
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4364559Z [36;1mtouch bootstrap/cache/packages.php[0m
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4365014Z [36;1mtouch bootstrap/cache/services.php[0m
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4365531Z [36;1mmkdir -p storage/framework/{cache,sessions,views}[0m
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4366071Z [36;1mchmod -R 0777 bootstrap storage || true[0m
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4366751Z [36;1mif [ ! -f .env ]; then cp .env.example .env || true; fi[0m
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4404815Z shell: /usr/bin/bash -e {0}
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4405150Z env:
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4405409Z   COMPOSER_PROCESS_TIMEOUT: 0
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4405791Z   COMPOSER_NO_INTERACTION: 1
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4406140Z   COMPOSER_NO_AUDIT: 1
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4406599Z ##[endgroup]
+php-smoke (8.2)	Prepare minimal runtime	2025-10-20T13:09:14.4531073Z cp: cannot stat '.env.example': No such file or directory
+php-smoke (8.2)	Run artisan checks	﻿2025-10-20T13:09:14.4556004Z ##[group]Run php artisan --version > artisan-version.txt || true
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.4556695Z [36;1mphp artisan --version > artisan-version.txt || true[0m
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.4557094Z [36;1mphp artisan route:list --no-ansi > route-list.txt || true[0m
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.4582501Z shell: /usr/bin/bash -e {0}
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.4582723Z env:
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.4582904Z   COMPOSER_PROCESS_TIMEOUT: 0
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.4583130Z   COMPOSER_NO_INTERACTION: 1
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.4583340Z   COMPOSER_NO_AUDIT: 1
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.4583520Z ##[endgroup]
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5164493Z PHP Fatal error:  During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\Support\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php:1693
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5166730Z Stack trace:
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5167589Z #0 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php(19): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5168731Z #1 /home/runner/work/POS_HHP/POS_HHP/vendor/composer/ClassLoader.php(576): include('...')
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5169526Z #2 /home/runner/work/POS_HHP/POS_HHP/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5170535Z #3 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/helpers.php(423): Composer\Autoload\ClassLoader->loadClass()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5171532Z #4 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(80): collect()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5172656Z #5 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterFacades.php(26): Illuminate\Foundation\PackageManifest->aliases()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5173973Z #6 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(213): Illuminate\Foundation\Bootstrap\RegisterFacades->bootstrap()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5175242Z #7 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(296): Illuminate\Foundation\Application->bootstrapWith()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5176565Z #8 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(119): Illuminate\Foundation\Console\Kernel->bootstrap()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5177482Z #9 /home/runner/work/POS_HHP/POS_HHP/artisan(33): Illuminate\Foundation\Console\Kernel->handle()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5178218Z #10 {main} in /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php on line 19
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5179369Z PHP Fatal error:  Uncaught ErrorException: Function must be enabled in php.ini by setting 'xdebug.mode' to 'develop' in /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php:35
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5180202Z Stack trace:
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5180564Z #0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5181481Z #1 /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php(35): xdebug_get_function_stack()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5182548Z #2 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(136): Symfony\Component\Debug\Exception\FatalErrorException->__construct()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5183887Z #3 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(123): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5184827Z #4 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5185202Z #5 {main}
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5185594Z   thrown in /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php on line 35
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5763318Z PHP Fatal error:  During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\Support\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php:1693
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5766158Z Stack trace:
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5767483Z #0 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php(19): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5768692Z #1 /home/runner/work/POS_HHP/POS_HHP/vendor/composer/ClassLoader.php(576): include('...')
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5769521Z #2 /home/runner/work/POS_HHP/POS_HHP/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5770721Z #3 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/helpers.php(423): Composer\Autoload\ClassLoader->loadClass()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5771964Z #4 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(80): collect()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5773281Z #5 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterFacades.php(26): Illuminate\Foundation\PackageManifest->aliases()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5774826Z #6 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(213): Illuminate\Foundation\Bootstrap\RegisterFacades->bootstrap()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5776495Z #7 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(296): Illuminate\Foundation\Application->bootstrapWith()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5777941Z #8 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(119): Illuminate\Foundation\Console\Kernel->bootstrap()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5779034Z #9 /home/runner/work/POS_HHP/POS_HHP/artisan(33): Illuminate\Foundation\Console\Kernel->handle()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5779904Z #10 {main} in /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php on line 19
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5781251Z PHP Fatal error:  Uncaught ErrorException: Function must be enabled in php.ini by setting 'xdebug.mode' to 'develop' in /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php:35
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5782040Z Stack trace:
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5782387Z #0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5783085Z #1 /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php(35): xdebug_get_function_stack()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5784150Z #2 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(136): Symfony\Component\Debug\Exception\FatalErrorException->__construct()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5785738Z #3 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(123): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5786883Z #4 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5787253Z #5 {main}
+php-smoke (8.2)	Run artisan checks	2025-10-20T13:09:14.5787652Z   thrown in /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php on line 35
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	﻿2025-10-20T13:09:14.5860815Z ##[group]Run # Ensure artifact files exist and contain something before upload
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5861370Z [36;1m# Ensure artifact files exist and contain something before upload[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5861864Z [36;1mtouch artisan-version.txt route-list.txt outdated-direct.json outdated-all.json[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5862290Z [36;1mif [ ! -s artisan-version.txt ]; then[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5862757Z [36;1m  php artisan --version > artisan-version.txt || echo "ERROR: artisan --version failed" > artisan-version.txt[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5863207Z [36;1mfi[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5863400Z [36;1mif [ ! -s route-list.txt ]; then[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5863818Z [36;1m  php artisan route:list --no-ansi > route-list.txt || echo "ERROR: route:list failed" > route-list.txt[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5864223Z [36;1mfi[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5864447Z [36;1mif [ ! -s outdated-direct.json ]; then[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5864909Z [36;1m  composer outdated --direct --format=json > outdated-direct.json || echo '{}' > outdated-direct.json[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5865357Z [36;1mfi[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5865545Z [36;1mif [ ! -s outdated-all.json ]; then[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5865952Z [36;1m  composer outdated --all --format=json > outdated-all.json || echo '{}' > outdated-all.json[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5866544Z [36;1mfi[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5866884Z [36;1mfor f in artisan-version.txt route-list.txt outdated-direct.json outdated-all.json; do[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5867295Z [36;1m  if [ ! -s "$f" ]; then[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5867545Z [36;1m    echo "EMPTY_ARTIFACT: $f" > "$f"[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5867778Z [36;1m  fi[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5867944Z [36;1mdone[0m
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5900583Z shell: /usr/bin/bash -e {0}
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5900934Z env:
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5901209Z   COMPOSER_PROCESS_TIMEOUT: 0
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5901567Z   COMPOSER_NO_INTERACTION: 1
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5901914Z   COMPOSER_NO_AUDIT: 1
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.5902212Z ##[endgroup]
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6514447Z PHP Fatal error:  During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\Support\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php:1693
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6517066Z Stack trace:
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6518173Z #0 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php(19): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6519625Z #1 /home/runner/work/POS_HHP/POS_HHP/vendor/composer/ClassLoader.php(576): include('...')
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6520576Z #2 /home/runner/work/POS_HHP/POS_HHP/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6521893Z #3 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/helpers.php(423): Composer\Autoload\ClassLoader->loadClass()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6523414Z #4 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(80): collect()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6525033Z #5 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterFacades.php(26): Illuminate\Foundation\PackageManifest->aliases()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6527123Z #6 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(213): Illuminate\Foundation\Bootstrap\RegisterFacades->bootstrap()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6529231Z #7 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(296): Illuminate\Foundation\Application->bootstrapWith()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6531014Z #8 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(119): Illuminate\Foundation\Console\Kernel->bootstrap()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6532663Z #9 /home/runner/work/POS_HHP/POS_HHP/artisan(33): Illuminate\Foundation\Console\Kernel->handle()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6533747Z #10 {main} in /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php on line 19
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6535376Z PHP Fatal error:  Uncaught ErrorException: Function must be enabled in php.ini by setting 'xdebug.mode' to 'develop' in /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php:35
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6536748Z Stack trace:
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6537297Z #0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6538425Z #1 /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php(35): xdebug_get_function_stack()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6540261Z #2 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(136): Symfony\Component\Debug\Exception\FatalErrorException->__construct()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6542564Z #3 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(123): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6544205Z #4 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6544857Z #5 {main}
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.6545524Z   thrown in /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php on line 35
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7130091Z PHP Fatal error:  During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\Support\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php:1693
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7132611Z Stack trace:
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7133788Z #0 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php(19): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7135261Z #1 /home/runner/work/POS_HHP/POS_HHP/vendor/composer/ClassLoader.php(576): include('...')
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7136533Z #2 /home/runner/work/POS_HHP/POS_HHP/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7137985Z #3 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/helpers.php(423): Composer\Autoload\ClassLoader->loadClass()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7139496Z #4 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(80): collect()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7141117Z #5 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterFacades.php(26): Illuminate\Foundation\PackageManifest->aliases()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7143122Z #6 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(213): Illuminate\Foundation\Bootstrap\RegisterFacades->bootstrap()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7145031Z #7 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(296): Illuminate\Foundation\Application->bootstrapWith()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7147085Z #8 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(119): Illuminate\Foundation\Console\Kernel->bootstrap()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7148828Z #9 /home/runner/work/POS_HHP/POS_HHP/artisan(33): Illuminate\Foundation\Console\Kernel->handle()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7149953Z #10 {main} in /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Support/Collection.php on line 19
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7151624Z PHP Fatal error:  Uncaught ErrorException: Function must be enabled in php.ini by setting 'xdebug.mode' to 'develop' in /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php:35
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7153066Z Stack trace:
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7153601Z #0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7154744Z #1 /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php(35): xdebug_get_function_stack()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7156757Z #2 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(136): Symfony\Component\Debug\Exception\FatalErrorException->__construct()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7159130Z #3 /home/runner/work/POS_HHP/POS_HHP/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(123): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalExceptionFromError()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7160811Z #4 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7161447Z #5 {main}
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:14.7162140Z   thrown in /home/runner/work/POS_HHP/POS_HHP/vendor/symfony/debug/Exception/FatalErrorException.php on line 35
+php-smoke (8.2)	Artifact diagnostics (ensure non-empty)	2025-10-20T13:09:17.7087524Z Cannot use phpunit/phpunit-mock-objects 5.0.10 as it requires php ^7.0 which is not satisfied by your platform.
+php-smoke (8.2)	Upload artifacts	﻿2025-10-20T13:09:19.3562456Z ##[group]Run actions/upload-artifact@v4
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.3562740Z with:
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.3562930Z   name: pr-smoke-php8-18653030597
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.3563359Z   path: artisan-version.txt
+php-smoke (8.2)	Upload artifacts	route-list.txt
+php-smoke (8.2)	Upload artifacts	bootstrap/cache/*.php
+php-smoke (8.2)	Upload artifacts	outdated-direct.json
+php-smoke (8.2)	Upload artifacts	outdated-all.json
+php-smoke (8.2)	Upload artifacts	
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.3563831Z   if-no-files-found: warn
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.3564044Z   compression-level: 6
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.3564230Z   overwrite: false
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.3564423Z   include-hidden-files: false
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.3564622Z env:
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.3564795Z   COMPOSER_PROCESS_TIMEOUT: 0
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.3565002Z   COMPOSER_NO_INTERACTION: 1
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.3565209Z   COMPOSER_NO_AUDIT: 1
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.3565387Z ##[endgroup]
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.5810605Z Multiple search paths detected. Calculating the least common ancestor of all paths
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.5817195Z The least common ancestor is /home/runner/work/POS_HHP/POS_HHP. This will be the root directory of the artifact
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.5818145Z With the provided path, there will be 6 files uploaded
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.5826807Z Artifact name is valid!
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.5827350Z Root directory input is valid!
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.7672087Z Beginning upload of artifact content to blob storage
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:19.9911177Z Uploaded bytes 11957
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:20.0490299Z Finished uploading artifact content to blob storage!
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:20.0493744Z SHA256 digest of uploaded artifact zip is f12e908d34d7c4d23fe1b233dcb979ed23467549dda19f4e2385fc103bf46b73
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:20.0495949Z Finalizing artifact upload
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:20.1769747Z Artifact pr-smoke-php8-18653030597.zip successfully finalized. Artifact ID 4317207679
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:20.1771060Z Artifact pr-smoke-php8-18653030597 has been successfully uploaded! Final size is 11957 bytes. Artifact ID is 4317207679
+php-smoke (8.2)	Upload artifacts	2025-10-20T13:09:20.1778109Z Artifact download URL: https://github.com/hplaatjies/POS_HHP/actions/runs/18653030597/artifacts/4317207679
+php-smoke (8.2)	Post Run actions/checkout@v4	﻿2025-10-20T13:09:20.1913600Z Post job cleanup.
+php-smoke (8.2)	Post Run actions/checkout@v4	2025-10-20T13:09:20.2835965Z [command]/usr/bin/git version
+php-smoke (8.2)	Post Run actions/checkout@v4	2025-10-20T13:09:20.2873674Z git version 2.51.0
+php-smoke (8.2)	Post Run actions/checkout@v4	2025-10-20T13:09:20.2917137Z Temporarily overriding HOME='/home/runner/work/_temp/f8dc70a0-8bb3-4a85-9caf-78f021f7cfb6' before making global git config changes
+php-smoke (8.2)	Post Run actions/checkout@v4	2025-10-20T13:09:20.2918384Z Adding repository directory to the temporary git global config as a safe directory
+php-smoke (8.2)	Post Run actions/checkout@v4	2025-10-20T13:09:20.2922766Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/POS_HHP/POS_HHP
+php-smoke (8.2)	Post Run actions/checkout@v4	2025-10-20T13:09:20.2959911Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+php-smoke (8.2)	Post Run actions/checkout@v4	2025-10-20T13:09:20.2992366Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+php-smoke (8.2)	Post Run actions/checkout@v4	2025-10-20T13:09:20.3220529Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+php-smoke (8.2)	Post Run actions/checkout@v4	2025-10-20T13:09:20.3241134Z http.https://github.com/.extraheader
+php-smoke (8.2)	Post Run actions/checkout@v4	2025-10-20T13:09:20.3253322Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+php-smoke (8.2)	Post Run actions/checkout@v4	2025-10-20T13:09:20.3282586Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+php-smoke (8.2)	Complete job	﻿2025-10-20T13:09:20.3606692Z Cleaning up orphan processes
